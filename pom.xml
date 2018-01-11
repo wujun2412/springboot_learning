@@ -21,7 +21,7 @@
 	<modules>
 		<module>springboot_helloworld</module>
 		<module>springboot_mybatis</module>
-
+		<module>common</module>
 	</modules>
 
     <properties>
