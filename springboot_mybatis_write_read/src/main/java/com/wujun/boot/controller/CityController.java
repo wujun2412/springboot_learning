@@ -34,7 +34,11 @@ public class CityController {
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     public ApiResult saveCity(@RequestBody CityRequest cityRequest){
         City city = dozerMapper.map(cityRequest,City.class);
-        cityService.saveCity(city);
+        try {
+            cityService.saveCity(city);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return ApiResult.SUCCESS();
     }
 

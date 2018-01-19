@@ -30,8 +30,12 @@ public class CityServiceImpl implements CityService{
 
     @Override
     @WriteDataSource
-    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,readOnly = false)
+    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT)
     public Integer saveCity(City city) {
-        return cityMapper.insert(city);
+        int count =cityMapper.insert(city);
+        if (count>0) {
+            throw new RuntimeException("...");
+        }
+        return count;
     }
 }
