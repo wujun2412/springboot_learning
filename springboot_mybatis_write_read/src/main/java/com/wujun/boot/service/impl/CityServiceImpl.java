@@ -1,5 +1,6 @@
 package com.wujun.boot.service.impl;
 
+import com.wujun.boot.annotation.ReadDataSource;
 import com.wujun.boot.annotation.WriteDataSource;
 import com.wujun.boot.dao.CityMapper;
 import com.wujun.boot.domain.City;
@@ -37,5 +38,12 @@ public class CityServiceImpl implements CityService{
             throw new RuntimeException("...");
         }
         return count;
+    }
+
+    @ReadDataSource
+    @Override
+    public City findById(Integer id) {
+        City city =cityMapper.selectByPrimaryKey(id);
+        return city;
     }
 }

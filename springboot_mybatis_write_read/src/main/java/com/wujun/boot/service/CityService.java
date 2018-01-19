@@ -10,4 +10,6 @@ import com.wujun.boot.domain.City;
 public interface CityService {
 
     Integer saveCity(City city);
+
+    City findById(Integer id);
 }
