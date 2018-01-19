@@ -33,7 +33,7 @@ public class CityServiceImpl implements CityService{
     @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT)
     public Integer saveCity(City city) {
         int count =cityMapper.insert(city);
-        if (count>0) {
+        if (count==0) {
             throw new RuntimeException("...");
         }
         return count;
