@@ -1,0 +1,79 @@
+logging:
+  config: classpath:logback/logback.xml
+  path: /Users/wujun/codelib/boot_leaning/springboot_mybatis_write_read/log
+server:
+  port: 8080
+  session:
+    timeout: 60
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.wujun.boot.domain
+  config-location: classpath:mybatis/mybatis-config.xml
+
+mysql:
+    datasource:
+        readSize: 2  #读库个数
+        type: com.alibaba.druid.pool.DruidDataSource
+        mapperLocations: classpath:mapper/*.xml
+        configLocation: classpath:mybatis/mybatis-config.xml
+        write:
+           url: jdbc:mysql://localhost:3306/springbootdb?useUnicode=true&characterEncoding=utf8&useSSL=false
+           username: root
+           password: root
+           driver-class-name: com.mysql.jdbc.Driver
+           minIdle: 5
+           maxActive: 100
+           initialSize: 10
+           maxWait: 60000
+           timeBetweenEvictionRunsMillis: 60000
+           minEvictableIdleTimeMillis: 300000
+           validationQuery: select 'x'
+           testWhileIdle: true
+           testOnBorrow: false
+           testOnReturn: false
+           poolPreparedStatements: true
+           maxPoolPreparedStatementPerConnectionSize: 50
+           removeAbandoned: true
+           filters: stat
+        read01:
+           url: jdbc:mysql://localhost:3306/springbootdb_read1?useUnicode=true&characterEncoding=utf8&useSSL=false
+           username: root
+           password: root
+           driver-class-name: com.mysql.jdbc.Driver
+           minIdle: 5
+           maxActive: 100
+           initialSize: 10
+           maxWait: 60000
+           timeBetweenEvictionRunsMillis: 60000
+           minEvictableIdleTimeMillis: 300000
+           validationQuery: select 'x'
+           testWhileIdle: true
+           testOnBorrow: false
+           testOnReturn: false
+           poolPreparedStatements: true
+           maxPoolPreparedStatementPerConnectionSize: 50
+           removeAbandoned: true
+           filters: stat
+        read02:
+           url: jdbc:mysql://localhost:3306/springbootdb_read2?useUnicode=true&characterEncoding=utf8&useSSL=false
+           username: root
+           password: root
+           driver-class-name: com.mysql.jdbc.Driver
+           minIdle: 5
+           maxActive: 100
+           initialSize: 10
+           maxWait: 60000
+           timeBetweenEvictionRunsMillis: 60000
+           minEvictableIdleTimeMillis: 300000
+           validationQuery: select 'x'
+           testWhileIdle: true
+           testOnBorrow: false
+           testOnReturn: false
+           poolPreparedStatements: true
+           maxPoolPreparedStatementPerConnectionSize: 50
+           removeAbandoned: true
+           filters: stat
+
+
+
