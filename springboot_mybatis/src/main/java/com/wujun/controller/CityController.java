@@ -6,7 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.wujun.domain.City;
 import com.wujun.requests.CityRequest;
 import com.wujun.responses.Response;
-import com.wujun.service.CityService;
+import com.wujun.common.service.CityService;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

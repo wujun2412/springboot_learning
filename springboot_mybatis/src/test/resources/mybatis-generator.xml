@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
 
-    <context id="MysqlTables" targetRuntime="com.wujun.mybatis.IntrospectedTableMyBatis3ImplExt" defaultModelType="flat">
+    <context id="MysqlTables" targetRuntime="com.wujun.common.mybatis.IntrospectedTableMyBatis3ImplExt" defaultModelType="flat">
         <!-- 是否去除自动生成的注释 true：是 ： false:否 自定义 数据表说明 -->
-        <commentGenerator type="com.wujun.mybatis.MybatisCommentGenerator">
+        <commentGenerator type="com.wujun.common.mybatis.MybatisCommentGenerator">
             <property name="suppressDate" value="true"/>
             <property name="suppressAllComments" value="false"/>
         </commentGenerator>

@@ -1,5 +1,6 @@
 package com.wujun.boot.config.dbconfig;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -33,7 +34,9 @@ public class DataSourceConfiguration {
     @ConfigurationProperties(prefix = "mysql.datasource.write")
     public DataSource writeDataSource(){
         log.info("--------------------writeDataSource init--------------------");
-        return DataSourceBuilder.create().type(dataSourceType).build();
+        DruidDataSource druidDataSource = (DruidDataSource) DataSourceBuilder.create().type(dataSourceType).build();
+        druidDataSource.setPasswordCallback(dbPasswordCallback());
+        return druidDataSource;
     }
 
     /**
@@ -44,7 +47,9 @@ public class DataSourceConfiguration {
     @ConfigurationProperties(prefix = "mysql.datasource.read01")
     public DataSource readDataSourceOne(){
         log.info("--------------------readDataSourceOne init--------------------");
-        return DataSourceBuilder.create().type(dataSourceType).build();
+        DruidDataSource druidDataSource = (DruidDataSource) DataSourceBuilder.create().type(dataSourceType).build();
+        druidDataSource.setPasswordCallback(dbPasswordCallback());
+        return druidDataSource;
     }
 
 
@@ -52,7 +57,15 @@ public class DataSourceConfiguration {
     @ConfigurationProperties(prefix = "mysql.datasource.read02")
     public DataSource readDataSourceTwo(){
         log.info("--------------------readDataSourceOne init--------------------");
-        return DataSourceBuilder.create().type(dataSourceType).build();
+        DruidDataSource druidDataSource = (DruidDataSource) DataSourceBuilder.create().type(dataSourceType).build();
+        druidDataSource.setPasswordCallback(dbPasswordCallback());
+        return druidDataSource;
+    }
+
+
+    @Bean
+    public DBPasswordCallback dbPasswordCallback(){
+        return new DBPasswordCallback();
     }
 
 }

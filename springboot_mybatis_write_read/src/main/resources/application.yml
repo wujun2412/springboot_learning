@@ -20,11 +20,11 @@ mysql:
         write:
            url: jdbc:mysql://localhost:3306/springbootdb?useUnicode=true&characterEncoding=utf8&useSSL=false
            username: root
-           password: root
+           password: 9R2cyOXGBPLT6rHblLzr5A==
            driver-class-name: com.mysql.jdbc.Driver
            minIdle: 5
            maxActive: 100
-           initialSize: 10
+           initialSize: 5
            maxWait: 60000
            timeBetweenEvictionRunsMillis: 60000
            minEvictableIdleTimeMillis: 300000
@@ -36,14 +36,15 @@ mysql:
            maxPoolPreparedStatementPerConnectionSize: 50
            removeAbandoned: true
            filters: stat
+           connectionProperties: password=${mysql.datasource.write.password}
         read01:
            url: jdbc:mysql://localhost:3306/springbootdb_read1?useUnicode=true&characterEncoding=utf8&useSSL=false
            username: root
-           password: root
+           password: 9R2cyOXGBPLT6rHblLzr5A==
            driver-class-name: com.mysql.jdbc.Driver
            minIdle: 5
            maxActive: 100
-           initialSize: 10
+           initialSize: 5
            maxWait: 60000
            timeBetweenEvictionRunsMillis: 60000
            minEvictableIdleTimeMillis: 300000
@@ -55,14 +56,15 @@ mysql:
            maxPoolPreparedStatementPerConnectionSize: 50
            removeAbandoned: true
            filters: stat
+           connectionProperties: password=${mysql.datasource.read01.password}
         read02:
            url: jdbc:mysql://localhost:3306/springbootdb_read2?useUnicode=true&characterEncoding=utf8&useSSL=false
            username: root
-           password: root
+           password: 9R2cyOXGBPLT6rHblLzr5A==
            driver-class-name: com.mysql.jdbc.Driver
            minIdle: 5
            maxActive: 100
-           initialSize: 10
+           initialSize: 5
            maxWait: 60000
            timeBetweenEvictionRunsMillis: 60000
            minEvictableIdleTimeMillis: 300000
@@ -74,6 +76,7 @@ mysql:
            maxPoolPreparedStatementPerConnectionSize: 50
            removeAbandoned: true
            filters: stat
+           connectionProperties: password=${mysql.datasource.read02.password}
 
 
 
