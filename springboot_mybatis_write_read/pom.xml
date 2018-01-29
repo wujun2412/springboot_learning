@@ -24,6 +24,17 @@
 		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>jcenter-releases</id>
+            <name>jcenter</name>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
+
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,6 +44,8 @@
 		<mysql.connector.version>5.1.45</mysql.connector.version>
 		<pagehelper.version>1.2.0</pagehelper.version>
 		<mybatis.generator.verison>1.3.5</mybatis.generator.verison>
+		<swagger2.version>2.7.0</swagger2.version>
+		<swagger2markup.version>1.3.1</swagger2markup.version>
 	</properties>
 
 	<dependencies>
@@ -109,6 +122,22 @@
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
 
+		<!-- spring swagger2依赖 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${swagger2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${swagger2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.github.swagger2markup</groupId>
+			<artifactId>swagger2markup</artifactId>
+			<version>${swagger2markup.version}</version>
+		</dependency>
         <!--<dependency>-->
 			<!--<groupId>com.fasterxml.jackson.core</groupId>-->
 			<!--<artifactId>jackson-core</artifactId>-->
@@ -132,8 +161,41 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>io.github.swagger2markup</groupId>
+				<artifactId>swagger2markup-maven-plugin</artifactId>
+				<version>1.3.1</version>
+				<configuration>
+					<swaggerInput>http://127.0.0.1:8080/v2/api-docs</swaggerInput>
+
+					<outputFile>src/docs/asciidoc/generated/all</outputFile>
+					<!--<outputFile>src/docs/markdown/generated/all</outputFile>-->
+					<!--<outputFile>src/docs/confluence_markup/generated/all</outputFile>-->
+					<config>
+						<swagger2markup.markupLanguage>ASCIIDOC</swagger2markup.markupLanguage>
+						<!--<swagger2markup.markupLanguage>MARKDOWN</swagger2markup.markupLanguage>-->
+						<!--<swagger2markup.markupLanguage>CONFLUENCE_MARKUP</swagger2markup.markupLanguage>-->
+					</config>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>1.5.6</version>
+				<configuration>
+					<sourceDirectory>src/docs/asciidoc/generated</sourceDirectory>
+					<outputDirectory>src/docs/asciidoc/html</outputDirectory>
+					<backend>html</backend>
+					<sourceHighlighter>coderay</sourceHighlighter>
+					<attributes>
+						<toc>left</toc>
+					</attributes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+
+
 
 
 </project>

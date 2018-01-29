@@ -6,6 +6,7 @@
     <result column="province_id" jdbcType="INTEGER" property="provinceId" />
     <result column="city_name" jdbcType="VARCHAR" property="cityName" />
     <result column="description" jdbcType="VARCHAR" property="description" />
+
   </resultMap>
   <!--
   eviction(缓存回收策略)：

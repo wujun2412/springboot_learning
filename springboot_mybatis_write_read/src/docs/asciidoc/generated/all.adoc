@@ -1,0 +1,207 @@
+= Spring Boot中使用Swagger2构建RESTful APIs
+
+
+[[_overview]]
+== Overview
+更多Spring Boot相关文章请关注：http://blog.didispace.com/
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : 1.0
+
+
+=== Contact information
+[%hardbreaks]
+__Contact__ : wujun
+__Contact Email__ : wujun2412@163.com
+
+
+=== License information
+[%hardbreaks]
+__Terms of service__ : http://blog.didispace.com/
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : 127.0.0.1:8080
+__BasePath__ : /
+
+
+=== Tags
+
+* city-controller : City Controller
+
+
+
+
+[[_paths]]
+== Paths
+
+[[_findcityusingget]]
+=== 获取的用户信息
+....
+GET /city/get
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**id** +
+__required__|用户ID|<<_integer,Integer>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_apiresult,ApiResult>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* city-controller
+
+
+[[_hellousingget]]
+=== hello
+....
+GET /city/hello
+....
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* city-controller
+
+
+[[_savecityusingpost]]
+=== saveCity
+....
+POST /city/save
+....
+
+
+==== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**cityRequest** +
+__required__|cityRequest|<<_cityrequest,CityRequest>>
+|===
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_apiresult,ApiResult>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* city-controller
+
+
+
+
+[[_definitions]]
+== Definitions
+
+[[_apiresult]]
+=== ApiResult
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**data** +
+__optional__|object
+|**errCode** +
+__optional__|string
+|**msg** +
+__optional__|string
+|**status** +
+__optional__|string
+|===
+
+
+[[_cityrequest]]
+=== CityRequest
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**cityName** +
+__optional__|string
+|**currentPage** +
+__optional__|integer (int32)
+|**description** +
+__optional__|string
+|**pageSize** +
+__optional__|integer (int32)
+|**provinceId** +
+__optional__|integer (int32)
+|===
+
+
+
+
+

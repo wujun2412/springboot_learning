@@ -4,6 +4,8 @@ import com.wujun.boot.domain.City;
 import com.wujun.boot.requests.CityRequest;
 import com.wujun.boot.responses.ApiResult;
 import com.wujun.boot.service.CityService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,10 +29,12 @@ public class CityController {
     @Autowired
     private DozerBeanMapper dozerMapper;
 
-    @RequestMapping("/hello")
+    @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String hello(){
         return "hello";
     }
+
+
 
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     public ApiResult saveCity(@RequestBody CityRequest cityRequest){
@@ -43,6 +47,9 @@ public class CityController {
         return ApiResult.SUCCESS();
     }
 
+
+    @ApiOperation(value = "获取的用户信息")
+    @ApiImplicitParam(name = "id",value = "用户ID",required = true,dataType = "Integer")
     @RequestMapping(value = "/get",method = RequestMethod.GET)
     public ApiResult findCity(@RequestParam("id") Integer id){
         City city = cityService.findById(id);

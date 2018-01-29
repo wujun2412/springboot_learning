@@ -1,0 +1,163 @@
+h1. Spring Boot中使用Swagger2构建RESTful APIs
+
+
+h2. Overview {anchor:overview}
+更多Spring Boot相关文章请关注：http://blog.didispace.com/
+
+
+h3. Version information
+_Version_ : 1.0
+
+
+h3. Contact information
+_Contact_ : wujun\\ 
+_Contact Email_ : wujun2412@163.com
+
+
+h3. License information
+_Terms of service_ : http://blog.didispace.com/
+
+
+h3. URI scheme
+_Host_ : 127.0.0.1:8080\\ 
+_BasePath_ : /
+
+
+h3. Tags
+
+* city-controller : City Controller
+
+
+
+
+h2. Paths {anchor:paths}
+
+h3. 获取的用户信息 {anchor:findcityusingget}
+{noformat}
+GET /city/get
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||
+|*Body*|*id*\\ \\ _required_||用户ID||[Integer|#integer]|
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ApiResult|#apiresult]|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}*/*{noformat}
+
+
+h4. Tags
+
+* city-controller
+
+
+h3. hello {anchor:hellousingget}
+{noformat}
+GET /city/hello
+{noformat}
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||string|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}*/*{noformat}
+
+
+h4. Tags
+
+* city-controller
+
+
+h3. saveCity {anchor:savecityusingpost}
+{noformat}
+POST /city/save
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||
+|*Body*|*cityRequest*\\ \\ _required_||cityRequest||[CityRequest|#cityrequest]|
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ApiResult|#apiresult]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}*/*{noformat}
+
+
+h4. Tags
+
+* city-controller
+
+
+
+
+h2. Definitions {anchor:definitions}
+
+h3. ApiResult {anchor:apiresult}
+
+||Name||Schema||
+|*data*\\ \\ _optional_||object|
+|*errCode*\\ \\ _optional_||string|
+|*msg*\\ \\ _optional_||string|
+|*status*\\ \\ _optional_||string|
+
+
+h3. CityRequest {anchor:cityrequest}
+
+||Name||Schema||
+|*cityName*\\ \\ _optional_||string|
+|*currentPage*\\ \\ _optional_||integer (int32)|
+|*description*\\ \\ _optional_||string|
+|*pageSize*\\ \\ _optional_||integer (int32)|
+|*provinceId*\\ \\ _optional_||integer (int32)|
+
+
+
+
+
