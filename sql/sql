@@ -5,3 +5,13 @@ CREATE TABLE `city` (
   `description` varchar(25) DEFAULT NULL COMMENT '描述',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8
+
+
+
+CREATE TABLE `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '用户编号',
+  `city_id` int(10) unsigned NOT NULL COMMENT 'city_id',
+  `name` varchar(25) DEFAULT NULL COMMENT '用户名',
+  `sex` int(1) DEFAULT 0 COMMENT '男',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8

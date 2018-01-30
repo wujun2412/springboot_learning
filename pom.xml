@@ -22,6 +22,7 @@
 		<module>springboot_helloworld</module>
 		<module>springboot_mybatis</module>
 		<module>springboot_mybatis_write_read</module>
+		<module>springboot_mybatis_multi_datasource</module>
 		<module>common</module>
 	</modules>
 
