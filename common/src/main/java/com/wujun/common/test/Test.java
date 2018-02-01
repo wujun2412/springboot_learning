@@ -1,7 +1,8 @@
 package com.wujun.common.test;
 
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * @author wujun
@@ -11,10 +12,15 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Test {
 
     public static void main(String[] args) {
-        Map<String,String> map = new ConcurrentHashMap<>(32);
-        map.put("String","String");
-//        System.out.println(Child.a);
-//        Parent[] parents = new Parent[10];
+        List<String> list  =   new ArrayList<String>();
+        list.add("aaa");
+        list.add("bbb");
+        list.add("aaa");
+        list.add("aba");
+        list.add("aaa");
+
+        List newList = new ArrayList(new HashSet(list));
+        System.out.println(newList.toString());
     }
 
 }
