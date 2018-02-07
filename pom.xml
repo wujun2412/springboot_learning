@@ -24,6 +24,7 @@
 		<module>springboot_mybatis_write_read</module>
 		<module>springboot_mybatis_multi_datasource</module>
 		<module>common</module>
+		<module>springboot_redis</module>
 	</modules>
 
     <properties>
@@ -37,6 +38,17 @@
                 <artifactId>dozer</artifactId>
                 <version>${dozer.version}</version>
             </dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>1.2.33</version>
+			</dependency>
+			<!-- joda Time -->
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>2.9.9</version>
+			</dependency>
         </dependencies>
 	</dependencyManagement>
 
