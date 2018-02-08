@@ -1,10 +1,13 @@
 logging:
   config: classpath:logback/logback.xml
   path: /Users/wujun/codelib/boot_leaning/springboot_mybatis_write_read/log
+
 server:
   port: 8080
   session:
     timeout: 60
+
+
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml

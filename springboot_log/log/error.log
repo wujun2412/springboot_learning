@@ -1,0 +1,12 @@
+2018-02-08 17:31:36.674 [http-nio-8080-exec-1] ERROR c.w.boot.controller.LogController -This is an error message
+2018-02-08 17:31:36.675 [http-nio-8080-exec-1] ERROR com.wujun.boot.log.LogHelper -this is a error message
+2018-02-08 18:20:10.801 [http-nio-8080-exec-1] ERROR c.w.boot.controller.LogController -This is an error message
+2018-02-08 18:20:10.804 [http-nio-8080-exec-1] ERROR com.wujun.boot.log.LogHelper -this is a error message
+2018-02-08 18:21:40.679 [http-nio-8080-exec-1] ERROR c.w.boot.controller.LogController -This is an error message
+2018-02-08 18:21:40.681 [http-nio-8080-exec-1] ERROR com.wujun.boot.log.LogHelper -this is a error message
+2018-02-08 18:25:07.989 [http-nio-8080-exec-1] ERROR c.w.boot.controller.LogController -This is an error message
+2018-02-08 18:25:07.991 [http-nio-8080-exec-1] ERROR com.wujun.boot.log.LogHelper -this is a error message
+2018-02-08 18:25:14.056 [http-nio-8080-exec-2] ERROR c.w.boot.controller.LogController -This is an error message
+2018-02-08 18:25:14.056 [http-nio-8080-exec-2] ERROR com.wujun.boot.log.LogHelper -this is a error message
+2018-02-08 18:25:17.191 [http-nio-8080-exec-3] ERROR c.w.boot.controller.LogController -This is an error message
+2018-02-08 18:25:17.191 [http-nio-8080-exec-3] ERROR com.wujun.boot.log.LogHelper -this is a error message
