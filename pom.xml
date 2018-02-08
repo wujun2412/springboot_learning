@@ -25,6 +25,7 @@
 		<module>springboot_mybatis_multi_datasource</module>
 		<module>common</module>
 		<module>springboot_redis</module>
+		<module>springboot_mongodb</module>
 	</modules>
 
     <properties>
