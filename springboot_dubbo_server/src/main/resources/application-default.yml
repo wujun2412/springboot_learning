@@ -1,0 +1,9 @@
+wujun:
+  test2: test2
+
+  dubbo:
+    provider:
+          enable: true
+          services:
+            - interfaceClass: com.wujun.boot.service.TestService
+              ref: testDubboService

@@ -1,0 +1,19 @@
+wujun:
+  test: test
+
+  dubbo:
+      application:
+        name: dubbo-wujun-boot-starter-test
+        owner: wujun
+
+      registry:
+        address: zookeeper://127.0.0.1:2181
+        file: dubboCache/wujun-boot-web
+      monitor:
+        address: dubbo://127.0.0.1:7070
+      provider:
+        version: 1.0.1
+        group: wujun_default_dev
+      consumer:
+        version: 1.0.1
+        group: wujun_default_dev

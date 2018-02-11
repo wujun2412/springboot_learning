@@ -27,6 +27,8 @@
 		<module>springboot_redis</module>
 		<module>springboot_mongodb</module>
 		<module>springboot_log</module>
+		<module>springboot_dubbo_server</module>
+
 	</modules>
 
     <properties>

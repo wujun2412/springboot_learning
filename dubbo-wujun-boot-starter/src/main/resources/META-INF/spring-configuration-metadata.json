@@ -1,0 +1,240 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties",
+      "name": "wujun.dubbo",
+      "type": "com.wujun.boot.dubbo.prop.DubboProperties"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties",
+      "name": "wujun.dubbo.application",
+      "sourceMethod": "getApplication()",
+      "type": "com.wujun.boot.dubbo.prop.DubboProperties$Application"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboConsumerProperties",
+      "name": "wujun.dubbo.consumer",
+      "type": "com.wujun.boot.dubbo.prop.DubboConsumerProperties"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties",
+      "name": "wujun.dubbo.monitor",
+      "sourceMethod": "getMonitor()",
+      "type": "com.wujun.boot.dubbo.prop.DubboProperties$Monitor"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties",
+      "name": "wujun.dubbo.protocol",
+      "sourceMethod": "getProtocol()",
+      "type": "com.wujun.boot.dubbo.prop.DubboProperties$Protocol"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProviderProperties",
+      "name": "wujun.dubbo.provider",
+      "type": "com.wujun.boot.dubbo.prop.DubboProviderProperties"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties",
+      "name": "wujun.dubbo.registry",
+      "sourceMethod": "getRegistry()",
+      "type": "com.wujun.boot.dubbo.prop.DubboProperties$Registry"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Application",
+      "name": "wujun.dubbo.application.dump-directory",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Application",
+      "name": "wujun.dubbo.application.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Application",
+      "name": "wujun.dubbo.application.owner",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboConsumerProperties",
+      "defaultValue": false,
+      "name": "wujun.dubbo.consumer.check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboConsumerProperties",
+      "defaultValue": false,
+      "name": "wujun.dubbo.consumer.enable",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboConsumerProperties",
+      "name": "wujun.dubbo.consumer.group",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboConsumerProperties",
+      "defaultValue": "roundrobin",
+      "name": "wujun.dubbo.consumer.loadbalance",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboConsumerProperties",
+      "name": "wujun.dubbo.consumer.references",
+      "type": "java.util.List<com.wujun.boot.dubbo.prop.DubboConsumerProperties.Reference>"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboConsumerProperties",
+      "defaultValue": 0,
+      "name": "wujun.dubbo.consumer.retries",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboConsumerProperties",
+      "defaultValue": 20000,
+      "name": "wujun.dubbo.consumer.timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboConsumerProperties",
+      "defaultValue": "dubboValidation",
+      "name": "wujun.dubbo.consumer.validation",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboConsumerProperties",
+      "name": "wujun.dubbo.consumer.version",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties",
+      "defaultValue": false,
+      "name": "wujun.dubbo.enable",
+      "description": "是否开启dubbo自动配置，默认不开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Monitor",
+      "name": "wujun.dubbo.monitor.address",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Monitor",
+      "defaultValue": "registry",
+      "name": "wujun.dubbo.monitor.protocol",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Protocol",
+      "defaultValue": true,
+      "name": "wujun.dubbo.protocol.accesslog",
+      "description": "访问日志",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Protocol",
+      "name": "wujun.dubbo.protocol.host",
+      "description": "服务IP地址(多网卡时使用)",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Protocol",
+      "name": "wujun.dubbo.protocol.name",
+      "type": "com.wujun.boot.dubbo.prop.DubboProperties$ProtocolName"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Protocol",
+      "name": "wujun.dubbo.protocol.parameters",
+      "description": "参数",
+      "type": "java.util.Map<java.lang.String,java.lang.String>"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Protocol",
+      "defaultValue": 20885,
+      "name": "wujun.dubbo.protocol.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Protocol",
+      "name": "wujun.dubbo.protocol.serialization",
+      "description": "序列化方式",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Protocol",
+      "name": "wujun.dubbo.protocol.server",
+      "description": "服务器端实现",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Protocol",
+      "defaultValue": 200,
+      "name": "wujun.dubbo.protocol.threads",
+      "description": "线程池大小(固定大小)",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProviderProperties",
+      "defaultValue": false,
+      "name": "wujun.dubbo.provider.enable",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProviderProperties",
+      "defaultValue": 200,
+      "name": "wujun.dubbo.provider.executes",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProviderProperties",
+      "defaultValue": "-accesslog",
+      "name": "wujun.dubbo.provider.filter",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProviderProperties",
+      "name": "wujun.dubbo.provider.group",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProviderProperties",
+      "defaultValue": "roundrobin",
+      "name": "wujun.dubbo.provider.loadbalance",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProviderProperties",
+      "defaultValue": 0,
+      "name": "wujun.dubbo.provider.retries",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProviderProperties",
+      "name": "wujun.dubbo.provider.services",
+      "type": "java.util.List<com.wujun.boot.dubbo.prop.DubboProviderProperties.Service>"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProviderProperties",
+      "defaultValue": 20000,
+      "name": "wujun.dubbo.provider.timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProviderProperties",
+      "name": "wujun.dubbo.provider.version",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Registry",
+      "name": "wujun.dubbo.registry.address",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.wujun.boot.dubbo.prop.DubboProperties$Registry",
+      "name": "wujun.dubbo.registry.file",
+      "type": "java.lang.String"
+    }
+  ]
+}
