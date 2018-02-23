@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
  * @date 18/2/11.
  */
 @Service("testDubboService")
-public class TestDubboServiceImpl implements TestService{
+public class TestDubboServiceImpl implements TestService {
 
+    @Override
+    public String test() {
+        return "dubbo service test";
+    }
 }

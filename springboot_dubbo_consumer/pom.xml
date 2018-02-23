@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.wujun.boot</groupId>
-	<artifactId>springboot_dubbo_server</artifactId>
+	<artifactId>springboot_dubbo_consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>springboot_dubbo_server</name>
-	<description>Demo project for Spring Boot dubbo 服务端:: 整合 Dubbo/ZooKeeper 详解 SOA 案例</description>
+	<name>springboot_dubbo_consumer</name>
+	<description>Demo project for Spring Boot dubbo consumer</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -25,33 +25,10 @@
 	</properties>
 
 	<dependencies>
-        <!-- 内部子系统依赖 -->
-        <dependency>
-            <groupId>com.wujun</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-		<dependency>
-			<groupId>com.wujun.boot</groupId>
-			<artifactId>springboot_dubbo_api</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
-		<!--<dependency>-->
-			<!--<groupId>io.dubbo.springboot</groupId>-->
-			<!--<artifactId>spring-boot-starter-dubbo</artifactId>-->
-			<!--<version>1.0.0</version>-->
-		<!--</dependency>-->
-		<!--<dependency>-->
-			<!--<groupId>com.gitee.reger</groupId>-->
-			<!--<artifactId>spring-boot-starter-dubbo</artifactId>-->
-			<!--<version>1.0.10</version>-->
-		<!--</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -59,12 +36,25 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- dubbo自动化配置 -->
 		<dependency>
 			<groupId>com.wujun.boot</groupId>
 			<artifactId>dubbo-wujun-boot-starter</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
+		<!-- 内部子系统依赖 -->
+		<dependency>
+			<groupId>com.wujun</groupId>
+			<artifactId>common</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.wujun.boot</groupId>
+			<artifactId>springboot_dubbo_api</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -6,4 +6,6 @@ package com.wujun.boot.service;
  * @date 18/2/11.
  */
 public interface TestService {
+
+    String test();
 }
