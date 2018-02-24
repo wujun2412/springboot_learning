@@ -1,3 +1,9 @@
+#logback日志配置
+logging:
+  path: /Users/wujun/codelib/boot_leaning/springboot_dubbo_server/log
+  config: classpath:logback/logback.xml
+  level: info
+
 wujun:
   test: test
 
@@ -17,3 +23,8 @@ wujun:
       consumer:
         version: 1.0.1
         group: wujun_default_dev
+        enable: true
+        references:
+                - interfaceClass: com.wujun.boot.service.TestService2
+                  beanId: testDubboService2
+                  async: false

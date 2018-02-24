@@ -60,6 +60,11 @@ public class DubboConsumerProperties {
         @NotBlank(message = "dubbo消费者引用的服务bean id不能为空")
         private String beanId;
 
+        /**
+         * whether to async
+         */
+        private Boolean async;
+
         // --- 这里的group和verison一般不用设置，继承consumer的配置 ---
 
         private String group;
@@ -80,6 +85,14 @@ public class DubboConsumerProperties {
 
         public void setBeanId(String beanId) {
             this.beanId = beanId;
+        }
+
+        public Boolean getAsync() {
+            return async;
+        }
+
+        public void setAsync(Boolean async) {
+            this.async = async;
         }
 
         public String getGroup() {

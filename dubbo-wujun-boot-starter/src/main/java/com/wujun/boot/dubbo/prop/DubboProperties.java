@@ -34,8 +34,8 @@ public class DubboProperties {
     @Valid
     private Registry registry;
 
-    @NotNull(message = "dubbo的监控中心配置不能为空")
-    @Valid
+//    @NotNull(message = "dubbo的监控中心配置不能为空")
+//    @Valid
     private Monitor monitor;
 
     /**

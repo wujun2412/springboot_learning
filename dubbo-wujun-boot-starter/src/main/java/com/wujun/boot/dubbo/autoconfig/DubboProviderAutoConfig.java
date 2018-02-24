@@ -79,6 +79,7 @@ public class DubboProviderAutoConfig {
         serviceBean.setProtocol(protocolConfig);
         serviceBean.setRegistry(registryConfig);
         serviceBean.setMonitor(monitorConfig);
+        serviceBean.setAsync(service.getAsync());
         try {
             serviceBean.afterPropertiesSet();
         } catch (Exception e) {

@@ -1,5 +1,10 @@
 server:
   port: 8081
+#logback\u65E5\u5FD7\u914D\u7F6E
+logging:
+  path: /Users/wujun/codelib/boot_leaning/springboot_dubbo_consumer/log
+  config: classpath:logback/logback.xml
+  level: info
 
 wujun:
   dubbo:
@@ -11,6 +16,8 @@ wujun:
       file: dubboCache/wujun-boot-web
     monitor:
       address: dubbo://127.0.0.1:7070
+    protocol:
+      port: 20886
 #    provider:
 #      version: 1.0.1
 #      group: wujun_default_dev
@@ -21,3 +28,11 @@ wujun:
       references:
         - interfaceClass: com.wujun.boot.service.TestService
           beanId: testDubboService
+#          async: true
+    provider:
+      group: wujun_default_dev
+      version: 1.0.1
+      enable: true
+      services:
+        - interfaceClass: com.wujun.boot.service.TestService2
+          ref: testDubboService2

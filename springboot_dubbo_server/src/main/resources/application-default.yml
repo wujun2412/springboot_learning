@@ -7,3 +7,4 @@ wujun:
           services:
             - interfaceClass: com.wujun.boot.service.TestService
               ref: testDubboService
+              async: true

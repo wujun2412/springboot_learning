@@ -146,7 +146,7 @@ public class DubboConsumerAutoConfig {
         consumerBean.setApplication(applicationConfig);
         consumerBean.setRegistry(registryConfig);
         consumerBean.setMonitor(monitorConfig);
-
+        consumerBean.setAsync(reference.getAsync());
         // 设置特殊属性
         String group = reference.getGroup();
         if (StringUtils.isNotBlank(group)) {

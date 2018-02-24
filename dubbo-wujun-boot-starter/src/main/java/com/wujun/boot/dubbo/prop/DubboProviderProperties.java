@@ -58,6 +58,11 @@ public class DubboProviderProperties {
         @NotBlank(message = "dubbo服务提供者的服务引用bean name不能为空")
         private String ref;
 
+        /**
+         * whether to async
+         */
+        private Boolean async;
+
         public Class getInterfaceClass() {
             return interfaceClass;
         }
@@ -72,6 +77,14 @@ public class DubboProviderProperties {
 
         public void setRef(String ref) {
             this.ref = ref;
+        }
+
+        public Boolean getAsync() {
+            return async;
+        }
+
+        public void setAsync(Boolean async) {
+            this.async = async;
         }
     }
 
