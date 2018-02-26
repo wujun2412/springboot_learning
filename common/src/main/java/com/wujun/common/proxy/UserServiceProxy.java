@@ -6,7 +6,7 @@ import java.lang.reflect.Proxy;
 
 /**
  * @author wujun
- * @description
+ * @description JDK动态代理
  * @date 18/1/12.
  */
 public class UserServiceProxy implements InvocationHandler{
