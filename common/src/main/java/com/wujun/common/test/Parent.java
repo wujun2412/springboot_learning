@@ -11,4 +11,12 @@ public class Parent {
     static{
         System.out.println("parent init！");
     }
+
+    public void doTest(){
+
+    }
+
+    public void doTest2(){
+        doTest();
+    }
 }

@@ -11,4 +11,8 @@ public class Child extends Parent {
 
     }
 
+    @Override
+    public void doTest() {
+        System.out.println("父类调用子类方法");
+    }
 }
