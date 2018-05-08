@@ -28,7 +28,7 @@
 		<module>springboot_mongodb</module>
 		<module>springboot_log</module>
 		<module>springboot_dubbo_server</module>
-
+		<module>springboot_shiro</module>
 	</modules>
 
     <properties>
