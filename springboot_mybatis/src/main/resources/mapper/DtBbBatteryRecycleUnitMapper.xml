@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujun.dao.DtBbBatteryRecycleUnitMapper">
+  <resultMap id="BaseResultMap" type="com.wujun.domain.DtBbBatteryRecycleUnit">
+    <id column="UNIT_ID" jdbcType="DECIMAL" property="UNIT_ID" />
+    <result column="UNIT_NO" jdbcType="VARCHAR" property="UNIT_NO" />
+    <result column="UNIT_NAME" jdbcType="VARCHAR" property="UNIT_NAME" />
+    <result column="CREDIT_CODE" jdbcType="VARCHAR" property="CREDIT_CODE" />
+    <result column="PROVINCE" jdbcType="DECIMAL" property="PROVINCE" />
+    <result column="CITY" jdbcType="DECIMAL" property="CITY" />
+    <result column="COUNTY" jdbcType="DECIMAL" property="COUNTY" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="ADDRESS" />
+    <result column="PHONE_NO" jdbcType="VARCHAR" property="PHONE_NO" />
+    <result column="UNIT_TYPE" jdbcType="DECIMAL" property="UNIT_TYPE" />
+    <result column="IS_DISABLE" jdbcType="DECIMAL" property="IS_DISABLE" />
+    <result column="IS_DOWN" jdbcType="DECIMAL" property="IS_DOWN" />
+    <result column="REMARK" jdbcType="VARCHAR" property="REMARK" />
+    <result column="CREATED_BY" jdbcType="DECIMAL" property="CREATED_BY" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="CREATED_TIME" />
+    <result column="UPDATED_BY" jdbcType="DECIMAL" property="UPDATED_BY" />
+    <result column="UPDATED_TIME" jdbcType="TIMESTAMP" property="UPDATED_TIME" />
+    <result column="VERSION" jdbcType="DECIMAL" property="VERSION" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    UNIT_ID, UNIT_NO, UNIT_NAME, CREDIT_CODE, PROVINCE, CITY, COUNTY, ADDRESS, PHONE_NO, 
+    UNIT_TYPE, IS_DISABLE, IS_DOWN, REMARK, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, 
+    VERSION
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from DT_BB_BATTERY_RECYCLE_UNIT
+    where UNIT_ID = #{UNIT_ID,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from DT_BB_BATTERY_RECYCLE_UNIT
+    where UNIT_ID = #{UNIT_ID,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.wujun.domain.DtBbBatteryRecycleUnit">
+    insert into DT_BB_BATTERY_RECYCLE_UNIT (UNIT_ID, UNIT_NO, UNIT_NAME, 
+      CREDIT_CODE, PROVINCE, CITY, 
+      COUNTY, ADDRESS, PHONE_NO, 
+      UNIT_TYPE, IS_DISABLE, IS_DOWN, 
+      REMARK, CREATED_BY, CREATED_TIME, 
+      UPDATED_BY, UPDATED_TIME, VERSION
+      )
+    values (#{UNIT_ID,jdbcType=DECIMAL}, #{UNIT_NO,jdbcType=VARCHAR}, #{UNIT_NAME,jdbcType=VARCHAR}, 
+      #{CREDIT_CODE,jdbcType=VARCHAR}, #{PROVINCE,jdbcType=DECIMAL}, #{CITY,jdbcType=DECIMAL}, 
+      #{COUNTY,jdbcType=DECIMAL}, #{ADDRESS,jdbcType=VARCHAR}, #{PHONE_NO,jdbcType=VARCHAR}, 
+      #{UNIT_TYPE,jdbcType=DECIMAL}, #{IS_DISABLE,jdbcType=DECIMAL}, #{IS_DOWN,jdbcType=DECIMAL}, 
+      #{REMARK,jdbcType=VARCHAR}, #{CREATED_BY,jdbcType=DECIMAL}, #{CREATED_TIME,jdbcType=TIMESTAMP}, 
+      #{UPDATED_BY,jdbcType=DECIMAL}, #{UPDATED_TIME,jdbcType=TIMESTAMP}, #{VERSION,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wujun.domain.DtBbBatteryRecycleUnit">
+    insert into DT_BB_BATTERY_RECYCLE_UNIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="UNIT_ID != null">
+        UNIT_ID,
+      </if>
+      <if test="UNIT_NO != null">
+        UNIT_NO,
+      </if>
+      <if test="UNIT_NAME != null">
+        UNIT_NAME,
+      </if>
+      <if test="CREDIT_CODE != null">
+        CREDIT_CODE,
+      </if>
+      <if test="PROVINCE != null">
+        PROVINCE,
+      </if>
+      <if test="CITY != null">
+        CITY,
+      </if>
+      <if test="COUNTY != null">
+        COUNTY,
+      </if>
+      <if test="ADDRESS != null">
+        ADDRESS,
+      </if>
+      <if test="PHONE_NO != null">
+        PHONE_NO,
+      </if>
+      <if test="UNIT_TYPE != null">
+        UNIT_TYPE,
+      </if>
+      <if test="IS_DISABLE != null">
+        IS_DISABLE,
+      </if>
+      <if test="IS_DOWN != null">
+        IS_DOWN,
+      </if>
+      <if test="REMARK != null">
+        REMARK,
+      </if>
+      <if test="CREATED_BY != null">
+        CREATED_BY,
+      </if>
+      <if test="CREATED_TIME != null">
+        CREATED_TIME,
+      </if>
+      <if test="UPDATED_BY != null">
+        UPDATED_BY,
+      </if>
+      <if test="UPDATED_TIME != null">
+        UPDATED_TIME,
+      </if>
+      <if test="VERSION != null">
+        VERSION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="UNIT_ID != null">
+        #{UNIT_ID,jdbcType=DECIMAL},
+      </if>
+      <if test="UNIT_NO != null">
+        #{UNIT_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="UNIT_NAME != null">
+        #{UNIT_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="CREDIT_CODE != null">
+        #{CREDIT_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="PROVINCE != null">
+        #{PROVINCE,jdbcType=DECIMAL},
+      </if>
+      <if test="CITY != null">
+        #{CITY,jdbcType=DECIMAL},
+      </if>
+      <if test="COUNTY != null">
+        #{COUNTY,jdbcType=DECIMAL},
+      </if>
+      <if test="ADDRESS != null">
+        #{ADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="PHONE_NO != null">
+        #{PHONE_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="UNIT_TYPE != null">
+        #{UNIT_TYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="IS_DISABLE != null">
+        #{IS_DISABLE,jdbcType=DECIMAL},
+      </if>
+      <if test="IS_DOWN != null">
+        #{IS_DOWN,jdbcType=DECIMAL},
+      </if>
+      <if test="REMARK != null">
+        #{REMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATED_BY != null">
+        #{CREATED_BY,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATED_TIME != null">
+        #{CREATED_TIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="UPDATED_BY != null">
+        #{UPDATED_BY,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATED_TIME != null">
+        #{UPDATED_TIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="VERSION != null">
+        #{VERSION,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wujun.domain.DtBbBatteryRecycleUnit">
+    update DT_BB_BATTERY_RECYCLE_UNIT
+    <set>
+      <if test="UNIT_NO != null">
+        UNIT_NO = #{UNIT_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="UNIT_NAME != null">
+        UNIT_NAME = #{UNIT_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="CREDIT_CODE != null">
+        CREDIT_CODE = #{CREDIT_CODE,jdbcType=VARCHAR},
+      </if>
+      <if test="PROVINCE != null">
+        PROVINCE = #{PROVINCE,jdbcType=DECIMAL},
+      </if>
+      <if test="CITY != null">
+        CITY = #{CITY,jdbcType=DECIMAL},
+      </if>
+      <if test="COUNTY != null">
+        COUNTY = #{COUNTY,jdbcType=DECIMAL},
+      </if>
+      <if test="ADDRESS != null">
+        ADDRESS = #{ADDRESS,jdbcType=VARCHAR},
+      </if>
+      <if test="PHONE_NO != null">
+        PHONE_NO = #{PHONE_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="UNIT_TYPE != null">
+        UNIT_TYPE = #{UNIT_TYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="IS_DISABLE != null">
+        IS_DISABLE = #{IS_DISABLE,jdbcType=DECIMAL},
+      </if>
+      <if test="IS_DOWN != null">
+        IS_DOWN = #{IS_DOWN,jdbcType=DECIMAL},
+      </if>
+      <if test="REMARK != null">
+        REMARK = #{REMARK,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATED_BY != null">
+        CREATED_BY = #{CREATED_BY,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATED_TIME != null">
+        CREATED_TIME = #{CREATED_TIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="UPDATED_BY != null">
+        UPDATED_BY = #{UPDATED_BY,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATED_TIME != null">
+        UPDATED_TIME = #{UPDATED_TIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="VERSION != null">
+        VERSION = #{VERSION,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where UNIT_ID = #{UNIT_ID,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wujun.domain.DtBbBatteryRecycleUnit">
+    update DT_BB_BATTERY_RECYCLE_UNIT
+    set UNIT_NO = #{UNIT_NO,jdbcType=VARCHAR},
+      UNIT_NAME = #{UNIT_NAME,jdbcType=VARCHAR},
+      CREDIT_CODE = #{CREDIT_CODE,jdbcType=VARCHAR},
+      PROVINCE = #{PROVINCE,jdbcType=DECIMAL},
+      CITY = #{CITY,jdbcType=DECIMAL},
+      COUNTY = #{COUNTY,jdbcType=DECIMAL},
+      ADDRESS = #{ADDRESS,jdbcType=VARCHAR},
+      PHONE_NO = #{PHONE_NO,jdbcType=VARCHAR},
+      UNIT_TYPE = #{UNIT_TYPE,jdbcType=DECIMAL},
+      IS_DISABLE = #{IS_DISABLE,jdbcType=DECIMAL},
+      IS_DOWN = #{IS_DOWN,jdbcType=DECIMAL},
+      REMARK = #{REMARK,jdbcType=VARCHAR},
+      CREATED_BY = #{CREATED_BY,jdbcType=DECIMAL},
+      CREATED_TIME = #{CREATED_TIME,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{UPDATED_BY,jdbcType=DECIMAL},
+      UPDATED_TIME = #{UPDATED_TIME,jdbcType=TIMESTAMP},
+      VERSION = #{VERSION,jdbcType=DECIMAL}
+    where UNIT_ID = #{UNIT_ID,jdbcType=DECIMAL}
+  </update>
+</mapper>
