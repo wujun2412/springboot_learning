@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujun.dao.NtReturningLogisticsAttachsMapper">
+  <resultMap id="BaseResultMap" type="com.wujun.domain.NtReturningLogisticsAttachs">
+    <id column="ATTACHMENT_ID" jdbcType="DECIMAL" property="ATTACHMENT_ID" />
+    <result column="COMPANY_ID" jdbcType="DECIMAL" property="COMPANY_ID" />
+    <result column="BOX_ID" jdbcType="DECIMAL" property="BOX_ID" />
+    <result column="CASE_NO" jdbcType="VARCHAR" property="CASE_NO" />
+    <result column="ATTACHMENT_NAME" jdbcType="VARCHAR" property="ATTACHMENT_NAME" />
+    <result column="ATTACHMENT_DESC" jdbcType="VARCHAR" property="ATTACHMENT_DESC" />
+    <result column="CREATED_BY" jdbcType="DECIMAL" property="CREATED_BY" />
+    <result column="CREATED_TIME" jdbcType="TIMESTAMP" property="CREATED_TIME" />
+    <result column="UPDATED_BY" jdbcType="DECIMAL" property="UPDATED_BY" />
+    <result column="UPDATED_TIME" jdbcType="TIMESTAMP" property="UPDATED_TIME" />
+    <result column="VERSION" jdbcType="DECIMAL" property="VERSION" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ATTACHMENT_ID, COMPANY_ID, BOX_ID, CASE_NO, ATTACHMENT_NAME, ATTACHMENT_DESC, CREATED_BY, 
+    CREATED_TIME, UPDATED_BY, UPDATED_TIME, VERSION
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from NT_RETURNING_LOGISTICS_ATTACHS
+    where ATTACHMENT_ID = #{ATTACHMENT_ID,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from NT_RETURNING_LOGISTICS_ATTACHS
+    where ATTACHMENT_ID = #{ATTACHMENT_ID,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.wujun.domain.NtReturningLogisticsAttachs">
+    insert into NT_RETURNING_LOGISTICS_ATTACHS (ATTACHMENT_ID, COMPANY_ID, BOX_ID, 
+      CASE_NO, ATTACHMENT_NAME, ATTACHMENT_DESC, 
+      CREATED_BY, CREATED_TIME, UPDATED_BY, 
+      UPDATED_TIME, VERSION)
+    values (#{ATTACHMENT_ID,jdbcType=DECIMAL}, #{COMPANY_ID,jdbcType=DECIMAL}, #{BOX_ID,jdbcType=DECIMAL}, 
+      #{CASE_NO,jdbcType=VARCHAR}, #{ATTACHMENT_NAME,jdbcType=VARCHAR}, #{ATTACHMENT_DESC,jdbcType=VARCHAR}, 
+      #{CREATED_BY,jdbcType=DECIMAL}, #{CREATED_TIME,jdbcType=TIMESTAMP}, #{UPDATED_BY,jdbcType=DECIMAL}, 
+      #{UPDATED_TIME,jdbcType=TIMESTAMP}, #{VERSION,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wujun.domain.NtReturningLogisticsAttachs">
+    insert into NT_RETURNING_LOGISTICS_ATTACHS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ATTACHMENT_ID != null">
+        ATTACHMENT_ID,
+      </if>
+      <if test="COMPANY_ID != null">
+        COMPANY_ID,
+      </if>
+      <if test="BOX_ID != null">
+        BOX_ID,
+      </if>
+      <if test="CASE_NO != null">
+        CASE_NO,
+      </if>
+      <if test="ATTACHMENT_NAME != null">
+        ATTACHMENT_NAME,
+      </if>
+      <if test="ATTACHMENT_DESC != null">
+        ATTACHMENT_DESC,
+      </if>
+      <if test="CREATED_BY != null">
+        CREATED_BY,
+      </if>
+      <if test="CREATED_TIME != null">
+        CREATED_TIME,
+      </if>
+      <if test="UPDATED_BY != null">
+        UPDATED_BY,
+      </if>
+      <if test="UPDATED_TIME != null">
+        UPDATED_TIME,
+      </if>
+      <if test="VERSION != null">
+        VERSION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ATTACHMENT_ID != null">
+        #{ATTACHMENT_ID,jdbcType=DECIMAL},
+      </if>
+      <if test="COMPANY_ID != null">
+        #{COMPANY_ID,jdbcType=DECIMAL},
+      </if>
+      <if test="BOX_ID != null">
+        #{BOX_ID,jdbcType=DECIMAL},
+      </if>
+      <if test="CASE_NO != null">
+        #{CASE_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="ATTACHMENT_NAME != null">
+        #{ATTACHMENT_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="ATTACHMENT_DESC != null">
+        #{ATTACHMENT_DESC,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATED_BY != null">
+        #{CREATED_BY,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATED_TIME != null">
+        #{CREATED_TIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="UPDATED_BY != null">
+        #{UPDATED_BY,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATED_TIME != null">
+        #{UPDATED_TIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="VERSION != null">
+        #{VERSION,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wujun.domain.NtReturningLogisticsAttachs">
+    update NT_RETURNING_LOGISTICS_ATTACHS
+    <set>
+      <if test="COMPANY_ID != null">
+        COMPANY_ID = #{COMPANY_ID,jdbcType=DECIMAL},
+      </if>
+      <if test="BOX_ID != null">
+        BOX_ID = #{BOX_ID,jdbcType=DECIMAL},
+      </if>
+      <if test="CASE_NO != null">
+        CASE_NO = #{CASE_NO,jdbcType=VARCHAR},
+      </if>
+      <if test="ATTACHMENT_NAME != null">
+        ATTACHMENT_NAME = #{ATTACHMENT_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="ATTACHMENT_DESC != null">
+        ATTACHMENT_DESC = #{ATTACHMENT_DESC,jdbcType=VARCHAR},
+      </if>
+      <if test="CREATED_BY != null">
+        CREATED_BY = #{CREATED_BY,jdbcType=DECIMAL},
+      </if>
+      <if test="CREATED_TIME != null">
+        CREATED_TIME = #{CREATED_TIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="UPDATED_BY != null">
+        UPDATED_BY = #{UPDATED_BY,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATED_TIME != null">
+        UPDATED_TIME = #{UPDATED_TIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="VERSION != null">
+        VERSION = #{VERSION,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ATTACHMENT_ID = #{ATTACHMENT_ID,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wujun.domain.NtReturningLogisticsAttachs">
+    update NT_RETURNING_LOGISTICS_ATTACHS
+    set COMPANY_ID = #{COMPANY_ID,jdbcType=DECIMAL},
+      BOX_ID = #{BOX_ID,jdbcType=DECIMAL},
+      CASE_NO = #{CASE_NO,jdbcType=VARCHAR},
+      ATTACHMENT_NAME = #{ATTACHMENT_NAME,jdbcType=VARCHAR},
+      ATTACHMENT_DESC = #{ATTACHMENT_DESC,jdbcType=VARCHAR},
+      CREATED_BY = #{CREATED_BY,jdbcType=DECIMAL},
+      CREATED_TIME = #{CREATED_TIME,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{UPDATED_BY,jdbcType=DECIMAL},
+      UPDATED_TIME = #{UPDATED_TIME,jdbcType=TIMESTAMP},
+      VERSION = #{VERSION,jdbcType=DECIMAL}
+    where ATTACHMENT_ID = #{ATTACHMENT_ID,jdbcType=DECIMAL}
+  </update>
+</mapper>

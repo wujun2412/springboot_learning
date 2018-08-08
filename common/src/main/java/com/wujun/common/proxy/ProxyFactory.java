@@ -43,7 +43,8 @@ public class ProxyFactory implements MethodInterceptor {
         }*/
 
         System.out.println("++++++++++开始代理++++++++++");
-
-        return method.invoke(target,objects);
+        Object obj = method.invoke(target,objects);
+        System.out.println("++++++++++结束代理++++++++++");
+        return obj;
     }
 }
