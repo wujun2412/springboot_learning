@@ -24,7 +24,7 @@ public class ProxyTest {
 
 
         //2.cglib动态代理
-        UserService userService = new UserService();
+        UserService userService = new  UserService();
         ProxyFactory proxyFactory = new ProxyFactory(userService);
         UserService proxy = (UserService) proxyFactory.getProxyInstance();
         proxy.test1();
