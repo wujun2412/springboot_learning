@@ -29,6 +29,7 @@
 		<module>springboot_log</module>
 		<module>springboot_dubbo_server</module>
 		<module>springboot_shiro</module>
+		<module>springboot_servlet_demo</module>
 	</modules>
 
     <properties>
@@ -53,6 +54,18 @@
 				<artifactId>joda-time</artifactId>
 				<version>2.9.9</version>
 			</dependency>
+
+			<dependency>
+				<groupId>com.wujun</groupId>
+				<artifactId>common</artifactId>
+				<version>1.0.1-SNAPSHOT</version>
+			</dependency>
+			<!--<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.1.0</version>
+				<scope>provided</scope>
+			</dependency>-->
         </dependencies>
 	</dependencyManagement>
 
