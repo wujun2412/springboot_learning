@@ -1,0 +1,4 @@
+spring:
+  data:
+    solr:
+      host: http://47.100.124.122:8888/solr/demo

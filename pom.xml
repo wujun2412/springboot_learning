@@ -30,6 +30,7 @@
 		<module>springboot_dubbo_server</module>
 		<module>springboot_shiro</module>
 		<module>springboot_servlet_demo</module>
+		<module>springboot_solr</module>
 	</modules>
 
     <properties>
