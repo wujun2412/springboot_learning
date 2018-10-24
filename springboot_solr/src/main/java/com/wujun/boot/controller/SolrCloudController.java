@@ -1,11 +1,13 @@
 package com.wujun.boot.controller;
 
+import com.wujun.boot.dao.SolrDao;
 import com.wujun.common.responses.ApiResult;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrRequest;
 import org.apache.solr.client.solrj.impl.CloudSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.client.solrj.response.UpdateResponse;
+import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;
 import org.apache.solr.common.params.ModifiableSolrParams;
@@ -28,6 +30,9 @@ public class SolrCloudController {
 
     @Autowired
     private CloudSolrClient client;
+
+    @Autowired
+    private SolrDao solrDao;
 
     @RequestMapping(value = "search",method = RequestMethod.POST)
     public ApiResult search(){
@@ -62,6 +67,19 @@ public class SolrCloudController {
             client.commit();
             ApiResult result = ApiResult.SUCCESS();
             result.setData(uuid);
+            return result;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ApiResult.FAIL();
+    }
+
+    @RequestMapping(value = "getById",method = RequestMethod.POST)
+    public ApiResult getById(@RequestParam("id") String id){
+        try {
+            SolrDocument doc = solrDao.getSolrDataById(id,false);
+            ApiResult result = ApiResult.SUCCESS();
+            result.setData(doc);
             return result;
         } catch (Exception e) {
             e.printStackTrace();
