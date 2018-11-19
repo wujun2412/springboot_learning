@@ -22,5 +22,3 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
-springboot_mybatis/src/test/resources/mybatis-generator2.xml
