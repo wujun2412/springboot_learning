@@ -32,6 +32,7 @@
 		<module>springboot_servlet_demo</module>
 		<module>springboot_solr</module>
 		<module>springboot_fastdfs</module>
+		<module>springboot_elastic_job</module>
 	</modules>
 
     <properties>
