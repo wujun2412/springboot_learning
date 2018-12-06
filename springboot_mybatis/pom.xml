@@ -104,14 +104,14 @@
                     <overwrite>false</overwrite>
                     <!-- 自动生成的配置 -->
                     <configurationFile>
-                        src/test/resources/mybatis-generator2.xml</configurationFile>
+                        src/test/resources/mybatis-generator-mysql.xml</configurationFile>
                 </configuration>
                 <dependencies>
-                    <!--<dependency>
+                    <dependency>
                         <groupId>mysql</groupId>
                         <artifactId>mysql-connector-java</artifactId>
                         <version>${mysql.connector.version}</version>
-                    </dependency>-->
+                    </dependency>
                     <dependency>
                         <groupId>com.oracle</groupId>
                         <artifactId>ojdbc14</artifactId>
