@@ -33,6 +33,7 @@
 		<module>springboot_solr</module>
 		<module>springboot_fastdfs</module>
 		<module>springboot_elastic_job</module>
+		<module>springboot_quartz</module>
 	</modules>
 
     <properties>
@@ -85,6 +86,12 @@
 				<groupId>com.dangdang</groupId>
 				<artifactId>elastic-job-lite-spring</artifactId>
 				<version>2.1.5</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.0</version>
 			</dependency>
         </dependencies>
 	</dependencyManagement>

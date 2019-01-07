@@ -54,7 +54,7 @@ public class DemoJobConfig {
                         new SimpleJobConfiguration(
                                 JobCoreConfiguration.newBuilder(
                                         jobClass.getName(),cron,shardingTotalCount)
-                                        .shardingItemParameters(shardingItemParameters)
+                                        .shardingItemParameters(shardingItemParameters).failover(true)
                                         .build()
                                 ,jobClass.getCanonicalName()
                         )
