@@ -34,6 +34,8 @@
 		<module>springboot_fastdfs</module>
 		<module>springboot_elastic_job</module>
 		<module>springboot_quartz</module>
+		<module>springboot_spring_session</module>
+		<module>springboot_metrics</module>
 	</modules>
 
     <properties>

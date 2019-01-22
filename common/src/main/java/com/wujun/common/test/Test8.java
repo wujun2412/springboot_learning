@@ -1,7 +1,5 @@
 package com.wujun.common.test;
 
-import java.lang.reflect.Method;
-
 /**
  * @author wujun
  * @description
@@ -9,26 +7,24 @@ import java.lang.reflect.Method;
  */
 public class Test8 {
 
-    public static void main(String[] args) throws NoSuchMethodException {
-        /*Map<Long, Integer> map = new HashMap<>(16);
-        Long l1 = new Long(1);
-
-
-        map.put(l1,1);
-        System.out.println(map.containsKey(1L));*/
-
-        Method method = Test8.class.getMethod("print", String.class);
-
-
+    public static void main(String[] args) {
+        test();
     }
 
 
+    public static void test(){
+        while (test2()){
+            System.out.println("sdfsdf");
+            break;
+        }
 
-    public String print(String str){
-        System.out.println(str);
-        return str;
+        System.out.println("end");
     }
 
+    public static boolean test2(){
+        System.out.println("sfsdfsdf");
+        return true;
+    }
 }
 
 
