@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
@@ -18,6 +19,7 @@ import java.util.Properties;
  * @description
  * @date 18/2/11.
  */
+@Service
 public class ExceptionDefinitions {
     private Logger logger = LoggerFactory.getLogger(ExceptionDefinitions.class);
     @Autowired

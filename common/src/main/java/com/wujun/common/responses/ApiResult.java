@@ -53,6 +53,13 @@ public class ApiResult<T> {
         return apiResult;
     }
 
+    public static ApiResult SUCCESS(String msg) {
+        ApiResult apiResult = new ApiResult();
+        apiResult.setStatus(_SUCCESS);
+        apiResult.setMsg(msg);
+        return apiResult;
+    }
+
     public static ApiResult FAIL() {
         ApiResult apiResult = new ApiResult();
         apiResult.setStatus(_FAIL);

@@ -47,11 +47,17 @@ public class RedisUtils {
      * @param seconds
      */
     public static void put(final String key, final Object value, final Integer seconds) {
+        if (value == null) {
+            remove(key);
+            return;
+        }
         template.execute((RedisCallback) connection -> {
             String json = JSON.toJSONString(value);
             byte[] keyBytes = SafeEncoder.encode(key);
             connection.set(keyBytes, SafeEncoder.encode(json));
-            connection.expire(keyBytes, seconds);
+            if (seconds > 0) {
+                connection.expire(keyBytes, seconds);
+            }
             logger.debug("setObject key={},value={}", key, json);
             return null;
         });
