@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujun.dao.WxActivityMapper">
+  <resultMap id="BaseResultMap" type="com.wujun.domain.WxActivity">
+    <id column="activity_id" jdbcType="BIGINT" property="activityId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sponsor" jdbcType="VARCHAR" property="sponsor" />
+    <result column="cover_image" jdbcType="VARCHAR" property="coverImage" />
+    <result column="sequence_num" jdbcType="INTEGER" property="sequenceNum" />
+    <result column="allow_entry_count" jdbcType="INTEGER" property="allowEntryCount" />
+    <result column="isNeedAudit" jdbcType="BIT" property="isneedaudit" />
+    <result column="target_customer" jdbcType="BIT" property="targetCustomer" />
+    <result column="geely_currency" jdbcType="INTEGER" property="geelyCurrency" />
+    <result column="country" jdbcType="BIGINT" property="country" />
+    <result column="province" jdbcType="BIGINT" property="province" />
+    <result column="city" jdbcType="BIGINT" property="city" />
+    <result column="county" jdbcType="BIGINT" property="county" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="source" jdbcType="TINYINT" property="source" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="coupon_address" jdbcType="VARCHAR" property="couponAddress" />
+    <result column="coupon_img" jdbcType="BIGINT" property="couponImg" />
+    <result column="information_setting" jdbcType="VARCHAR" property="informationSetting" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="created_name" jdbcType="VARCHAR" property="createdName" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="updated_name" jdbcType="VARCHAR" property="updatedName" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.wujun.domain.WxActivity">
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    activity_id, name, sponsor, cover_image, sequence_num, allow_entry_count, isNeedAudit, 
+    target_customer, geely_currency, country, province, city, county, address, start_time, 
+    end_time, publish_time, source, status, coupon_address, coupon_img, information_setting, 
+    created_by, created_name, created_time, updated_by, updated_name, updated_time, version
+  </sql>
+  <sql id="Blob_Column_List">
+    description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from wx_activity
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from wx_activity
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wujun.domain.WxActivity">
+    insert into wx_activity (activity_id, name, sponsor, 
+      cover_image, sequence_num, allow_entry_count, 
+      isNeedAudit, target_customer, geely_currency, 
+      country, province, city, 
+      county, address, start_time, 
+      end_time, publish_time, source, 
+      status, coupon_address, coupon_img, 
+      information_setting, created_by, created_name, 
+      created_time, updated_by, updated_name, 
+      updated_time, version, description
+      )
+    values (#{activityId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{sponsor,jdbcType=VARCHAR}, 
+      #{coverImage,jdbcType=VARCHAR}, #{sequenceNum,jdbcType=INTEGER}, #{allowEntryCount,jdbcType=INTEGER}, 
+      #{isneedaudit,jdbcType=BIT}, #{targetCustomer,jdbcType=BIT}, #{geelyCurrency,jdbcType=INTEGER}, 
+      #{country,jdbcType=BIGINT}, #{province,jdbcType=BIGINT}, #{city,jdbcType=BIGINT}, 
+      #{county,jdbcType=BIGINT}, #{address,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{publishTime,jdbcType=TIMESTAMP}, #{source,jdbcType=TINYINT}, 
+      #{status,jdbcType=BIT}, #{couponAddress,jdbcType=VARCHAR}, #{couponImg,jdbcType=BIGINT}, 
+      #{informationSetting,jdbcType=VARCHAR}, #{createdBy,jdbcType=BIGINT}, #{createdName,jdbcType=VARCHAR}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, #{updatedName,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wujun.domain.WxActivity">
+    insert into wx_activity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        activity_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="sponsor != null">
+        sponsor,
+      </if>
+      <if test="coverImage != null">
+        cover_image,
+      </if>
+      <if test="sequenceNum != null">
+        sequence_num,
+      </if>
+      <if test="allowEntryCount != null">
+        allow_entry_count,
+      </if>
+      <if test="isneedaudit != null">
+        isNeedAudit,
+      </if>
+      <if test="targetCustomer != null">
+        target_customer,
+      </if>
+      <if test="geelyCurrency != null">
+        geely_currency,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="county != null">
+        county,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="publishTime != null">
+        publish_time,
+      </if>
+      <if test="source != null">
+        source,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="couponAddress != null">
+        coupon_address,
+      </if>
+      <if test="couponImg != null">
+        coupon_img,
+      </if>
+      <if test="informationSetting != null">
+        information_setting,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdName != null">
+        created_name,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedName != null">
+        updated_name,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsor != null">
+        #{sponsor,jdbcType=VARCHAR},
+      </if>
+      <if test="coverImage != null">
+        #{coverImage,jdbcType=VARCHAR},
+      </if>
+      <if test="sequenceNum != null">
+        #{sequenceNum,jdbcType=INTEGER},
+      </if>
+      <if test="allowEntryCount != null">
+        #{allowEntryCount,jdbcType=INTEGER},
+      </if>
+      <if test="isneedaudit != null">
+        #{isneedaudit,jdbcType=BIT},
+      </if>
+      <if test="targetCustomer != null">
+        #{targetCustomer,jdbcType=BIT},
+      </if>
+      <if test="geelyCurrency != null">
+        #{geelyCurrency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=BIGINT},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=BIGINT},
+      </if>
+      <if test="county != null">
+        #{county,jdbcType=BIGINT},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishTime != null">
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="couponAddress != null">
+        #{couponAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="couponImg != null">
+        #{couponImg,jdbcType=BIGINT},
+      </if>
+      <if test="informationSetting != null">
+        #{informationSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wujun.domain.WxActivity">
+    update wx_activity
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sponsor != null">
+        sponsor = #{sponsor,jdbcType=VARCHAR},
+      </if>
+      <if test="coverImage != null">
+        cover_image = #{coverImage,jdbcType=VARCHAR},
+      </if>
+      <if test="sequenceNum != null">
+        sequence_num = #{sequenceNum,jdbcType=INTEGER},
+      </if>
+      <if test="allowEntryCount != null">
+        allow_entry_count = #{allowEntryCount,jdbcType=INTEGER},
+      </if>
+      <if test="isneedaudit != null">
+        isNeedAudit = #{isneedaudit,jdbcType=BIT},
+      </if>
+      <if test="targetCustomer != null">
+        target_customer = #{targetCustomer,jdbcType=BIT},
+      </if>
+      <if test="geelyCurrency != null">
+        geely_currency = #{geelyCurrency,jdbcType=INTEGER},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=BIGINT},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=BIGINT},
+      </if>
+      <if test="county != null">
+        county = #{county,jdbcType=BIGINT},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishTime != null">
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null">
+        source = #{source,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="couponAddress != null">
+        coupon_address = #{couponAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="couponImg != null">
+        coupon_img = #{couponImg,jdbcType=BIGINT},
+      </if>
+      <if test="informationSetting != null">
+        information_setting = #{informationSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        created_name = #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updated_by = #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        updated_name = #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wujun.domain.WxActivity">
+    update wx_activity
+    set name = #{name,jdbcType=VARCHAR},
+      sponsor = #{sponsor,jdbcType=VARCHAR},
+      cover_image = #{coverImage,jdbcType=VARCHAR},
+      sequence_num = #{sequenceNum,jdbcType=INTEGER},
+      allow_entry_count = #{allowEntryCount,jdbcType=INTEGER},
+      isNeedAudit = #{isneedaudit,jdbcType=BIT},
+      target_customer = #{targetCustomer,jdbcType=BIT},
+      geely_currency = #{geelyCurrency,jdbcType=INTEGER},
+      country = #{country,jdbcType=BIGINT},
+      province = #{province,jdbcType=BIGINT},
+      city = #{city,jdbcType=BIGINT},
+      county = #{county,jdbcType=BIGINT},
+      address = #{address,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      source = #{source,jdbcType=TINYINT},
+      status = #{status,jdbcType=BIT},
+      coupon_address = #{couponAddress,jdbcType=VARCHAR},
+      coupon_img = #{couponImg,jdbcType=BIGINT},
+      information_setting = #{informationSetting,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=BIGINT},
+      created_name = #{createdName,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=BIGINT},
+      updated_name = #{updatedName,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      description = #{description,jdbcType=LONGVARCHAR}
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wujun.domain.WxActivity">
+    update wx_activity
+    set name = #{name,jdbcType=VARCHAR},
+      sponsor = #{sponsor,jdbcType=VARCHAR},
+      cover_image = #{coverImage,jdbcType=VARCHAR},
+      sequence_num = #{sequenceNum,jdbcType=INTEGER},
+      allow_entry_count = #{allowEntryCount,jdbcType=INTEGER},
+      isNeedAudit = #{isneedaudit,jdbcType=BIT},
+      target_customer = #{targetCustomer,jdbcType=BIT},
+      geely_currency = #{geelyCurrency,jdbcType=INTEGER},
+      country = #{country,jdbcType=BIGINT},
+      province = #{province,jdbcType=BIGINT},
+      city = #{city,jdbcType=BIGINT},
+      county = #{county,jdbcType=BIGINT},
+      address = #{address,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      source = #{source,jdbcType=TINYINT},
+      status = #{status,jdbcType=BIT},
+      coupon_address = #{couponAddress,jdbcType=VARCHAR},
+      coupon_img = #{couponImg,jdbcType=BIGINT},
+      information_setting = #{informationSetting,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=BIGINT},
+      created_name = #{createdName,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=BIGINT},
+      updated_name = #{updatedName,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER}
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </update>
+</mapper>

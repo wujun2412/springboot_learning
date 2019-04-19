@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujun.dao.WxArticleMapper">
+  <resultMap id="BaseResultMap" type="com.wujun.domain.WxArticle">
+    <id column="article_id" jdbcType="BIGINT" property="articleId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="cover_image" jdbcType="VARCHAR" property="coverImage" />
+    <result column="channel_id" jdbcType="BIGINT" property="channelId" />
+    <result column="is_channel_top" jdbcType="BIT" property="isChannelTop" />
+    <result column="allow_comment" jdbcType="BIT" property="allowComment" />
+    <result column="allow_anon" jdbcType="BIT" property="allowAnon" />
+    <result column="target_customer" jdbcType="BIT" property="targetCustomer" />
+    <result column="target_series" jdbcType="VARCHAR" property="targetSeries" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="created_name" jdbcType="VARCHAR" property="createdName" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="updated_name" jdbcType="VARCHAR" property="updatedName" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.wujun.domain.WxArticle">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    article_id, title, author, cover_image, channel_id, is_channel_top, allow_comment, 
+    allow_anon, target_customer, target_series, publish_time, remark, status, created_by, 
+    created_name, created_time, updated_by, updated_name, updated_time, version
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from wx_article
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from wx_article
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wujun.domain.WxArticle">
+    insert into wx_article (article_id, title, author, 
+      cover_image, channel_id, is_channel_top, 
+      allow_comment, allow_anon, target_customer, 
+      target_series, publish_time, remark, 
+      status, created_by, created_name, 
+      created_time, updated_by, updated_name, 
+      updated_time, version, content
+      )
+    values (#{articleId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+      #{coverImage,jdbcType=VARCHAR}, #{channelId,jdbcType=BIGINT}, #{isChannelTop,jdbcType=BIT}, 
+      #{allowComment,jdbcType=BIT}, #{allowAnon,jdbcType=BIT}, #{targetCustomer,jdbcType=BIT}, 
+      #{targetSeries,jdbcType=VARCHAR}, #{publishTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{status,jdbcType=BIT}, #{createdBy,jdbcType=BIGINT}, #{createdName,jdbcType=VARCHAR}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, #{updatedName,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wujun.domain.WxArticle">
+    insert into wx_article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="coverImage != null">
+        cover_image,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="isChannelTop != null">
+        is_channel_top,
+      </if>
+      <if test="allowComment != null">
+        allow_comment,
+      </if>
+      <if test="allowAnon != null">
+        allow_anon,
+      </if>
+      <if test="targetCustomer != null">
+        target_customer,
+      </if>
+      <if test="targetSeries != null">
+        target_series,
+      </if>
+      <if test="publishTime != null">
+        publish_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdName != null">
+        created_name,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedName != null">
+        updated_name,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleId != null">
+        #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="coverImage != null">
+        #{coverImage,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="isChannelTop != null">
+        #{isChannelTop,jdbcType=BIT},
+      </if>
+      <if test="allowComment != null">
+        #{allowComment,jdbcType=BIT},
+      </if>
+      <if test="allowAnon != null">
+        #{allowAnon,jdbcType=BIT},
+      </if>
+      <if test="targetCustomer != null">
+        #{targetCustomer,jdbcType=BIT},
+      </if>
+      <if test="targetSeries != null">
+        #{targetSeries,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null">
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wujun.domain.WxArticle">
+    update wx_article
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="coverImage != null">
+        cover_image = #{coverImage,jdbcType=VARCHAR},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=BIGINT},
+      </if>
+      <if test="isChannelTop != null">
+        is_channel_top = #{isChannelTop,jdbcType=BIT},
+      </if>
+      <if test="allowComment != null">
+        allow_comment = #{allowComment,jdbcType=BIT},
+      </if>
+      <if test="allowAnon != null">
+        allow_anon = #{allowAnon,jdbcType=BIT},
+      </if>
+      <if test="targetCustomer != null">
+        target_customer = #{targetCustomer,jdbcType=BIT},
+      </if>
+      <if test="targetSeries != null">
+        target_series = #{targetSeries,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null">
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        created_name = #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updated_by = #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        updated_name = #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wujun.domain.WxArticle">
+    update wx_article
+    set title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      cover_image = #{coverImage,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=BIGINT},
+      is_channel_top = #{isChannelTop,jdbcType=BIT},
+      allow_comment = #{allowComment,jdbcType=BIT},
+      allow_anon = #{allowAnon,jdbcType=BIT},
+      target_customer = #{targetCustomer,jdbcType=BIT},
+      target_series = #{targetSeries,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIT},
+      created_by = #{createdBy,jdbcType=BIGINT},
+      created_name = #{createdName,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=BIGINT},
+      updated_name = #{updatedName,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wujun.domain.WxArticle">
+    update wx_article
+    set title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      cover_image = #{coverImage,jdbcType=VARCHAR},
+      channel_id = #{channelId,jdbcType=BIGINT},
+      is_channel_top = #{isChannelTop,jdbcType=BIT},
+      allow_comment = #{allowComment,jdbcType=BIT},
+      allow_anon = #{allowAnon,jdbcType=BIT},
+      target_customer = #{targetCustomer,jdbcType=BIT},
+      target_series = #{targetSeries,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIT},
+      created_by = #{createdBy,jdbcType=BIGINT},
+      created_name = #{createdName,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=BIGINT},
+      updated_name = #{updatedName,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER}
+    where article_id = #{articleId,jdbcType=BIGINT}
+  </update>
+</mapper>

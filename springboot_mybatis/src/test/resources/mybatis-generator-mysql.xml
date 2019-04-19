@@ -12,9 +12,9 @@
         </commentGenerator>
         <!--数据库链接地址账号密码-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/test?useSSL=false"
-                        userId="test"
-                        password="test">
+                        connectionURL="jdbc:mysql://10.86.61.29:3306/headline?useSSL=false"
+                        userId="headline"
+                        password="headline">
         </jdbcConnection>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
@@ -69,8 +69,21 @@
                <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
             <!--<property name="useActualColumnNames" value="true"/>-->
         <!--</table>-->
-        <table tableName="wx_image_folder" domainObjectName="WxImageFolder"
+        <!--<table tableName="wx_user_history" domainObjectName="WxUserHistory"
             enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+        <!--<table tableName="wx_activity" domainObjectName="WxActivity"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+        <!--<table tableName="wx_introduce_activity_recommend" domainObjectName="WxIntroduceActivityRecomend"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <table tableName="wx_introduce_activity_entry" domainObjectName="WxIntroduceActivityEntry"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>-->
+
+        <table tableName="wx_introduce_activity_order" domainObjectName="WxIntroduceActivityOrder"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
     </context>
 </generatorConfiguration>

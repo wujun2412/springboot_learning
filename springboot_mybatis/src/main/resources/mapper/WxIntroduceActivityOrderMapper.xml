@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujun.dao.WxIntroduceActivityOrderMapper">
+  <resultMap id="BaseResultMap" type="com.wujun.domain.WxIntroduceActivityOrder">
+    <id column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="order_code" jdbcType="VARCHAR" property="orderCode" />
+    <result column="activity_id" jdbcType="BIGINT" property="activityId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="award_setting" jdbcType="VARCHAR" property="awardSetting" />
+    <result column="order_time" jdbcType="TIMESTAMP" property="orderTime" />
+    <result column="province" jdbcType="BIGINT" property="province" />
+    <result column="city" jdbcType="BIGINT" property="city" />
+    <result column="county" jdbcType="BIGINT" property="county" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="express_name" jdbcType="VARCHAR" property="expressName" />
+    <result column="express_number" jdbcType="VARCHAR" property="expressNumber" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="created_name" jdbcType="VARCHAR" property="createdName" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="updated_name" jdbcType="VARCHAR" property="updatedName" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    order_id, order_code, activity_id, name, mobile, award_setting, order_time, province, 
+    city, county, address, status, express_name, express_number, created_by, created_name, 
+    created_time, updated_by, updated_name, updated_time, version
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wx_introduce_activity_order
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from wx_introduce_activity_order
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wujun.domain.WxIntroduceActivityOrder">
+    insert into wx_introduce_activity_order (order_id, order_code, activity_id, 
+      name, mobile, award_setting, 
+      order_time, province, city, 
+      county, address, status, 
+      express_name, express_number, created_by, 
+      created_name, created_time, updated_by, 
+      updated_name, updated_time, version
+      )
+    values (#{orderId,jdbcType=BIGINT}, #{orderCode,jdbcType=VARCHAR}, #{activityId,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{awardSetting,jdbcType=VARCHAR}, 
+      #{orderTime,jdbcType=TIMESTAMP}, #{province,jdbcType=BIGINT}, #{city,jdbcType=BIGINT}, 
+      #{county,jdbcType=BIGINT}, #{address,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, 
+      #{expressName,jdbcType=VARCHAR}, #{expressNumber,jdbcType=VARCHAR}, #{createdBy,jdbcType=BIGINT}, 
+      #{createdName,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, 
+      #{updatedName,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wujun.domain.WxIntroduceActivityOrder">
+    insert into wx_introduce_activity_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="orderCode != null">
+        order_code,
+      </if>
+      <if test="activityId != null">
+        activity_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="awardSetting != null">
+        award_setting,
+      </if>
+      <if test="orderTime != null">
+        order_time,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="county != null">
+        county,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="expressName != null">
+        express_name,
+      </if>
+      <if test="expressNumber != null">
+        express_number,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdName != null">
+        created_name,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedName != null">
+        updated_name,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null">
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="awardSetting != null">
+        #{awardSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTime != null">
+        #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=BIGINT},
+      </if>
+      <if test="county != null">
+        #{county,jdbcType=BIGINT},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="expressName != null">
+        #{expressName,jdbcType=VARCHAR},
+      </if>
+      <if test="expressNumber != null">
+        #{expressNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wujun.domain.WxIntroduceActivityOrder">
+    update wx_introduce_activity_order
+    <set>
+      <if test="orderCode != null">
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="activityId != null">
+        activity_id = #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="awardSetting != null">
+        award_setting = #{awardSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="orderTime != null">
+        order_time = #{orderTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=BIGINT},
+      </if>
+      <if test="county != null">
+        county = #{county,jdbcType=BIGINT},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="expressName != null">
+        express_name = #{expressName,jdbcType=VARCHAR},
+      </if>
+      <if test="expressNumber != null">
+        express_number = #{expressNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        created_name = #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updated_by = #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        updated_name = #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+    </set>
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wujun.domain.WxIntroduceActivityOrder">
+    update wx_introduce_activity_order
+    set order_code = #{orderCode,jdbcType=VARCHAR},
+      activity_id = #{activityId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      award_setting = #{awardSetting,jdbcType=VARCHAR},
+      order_time = #{orderTime,jdbcType=TIMESTAMP},
+      province = #{province,jdbcType=BIGINT},
+      city = #{city,jdbcType=BIGINT},
+      county = #{county,jdbcType=BIGINT},
+      address = #{address,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIT},
+      express_name = #{expressName,jdbcType=VARCHAR},
+      express_number = #{expressNumber,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=BIGINT},
+      created_name = #{createdName,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=BIGINT},
+      updated_name = #{updatedName,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER}
+    where order_id = #{orderId,jdbcType=BIGINT}
+  </update>
+</mapper>

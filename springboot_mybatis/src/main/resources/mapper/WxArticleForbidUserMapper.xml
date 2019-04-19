@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujun.dao.WxArticleForbidUserMapper">
+  <resultMap id="BaseResultMap" type="com.wujun.domain.WxArticleForbidUser">
+    <id column="forbid_id" jdbcType="BIGINT" property="forbidId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="forbid_length" jdbcType="INTEGER" property="forbidLength" />
+    <result column="forbid_time" jdbcType="TIMESTAMP" property="forbidTime" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="created_name" jdbcType="VARCHAR" property="createdName" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="updated_name" jdbcType="VARCHAR" property="updatedName" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    forbid_id, user_id, user_name, forbid_length, forbid_time, created_by, created_name, 
+    created_time, updated_by, updated_name, updated_time, version
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wx_article_forbid_user
+    where forbid_id = #{forbidId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from wx_article_forbid_user
+    where forbid_id = #{forbidId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wujun.domain.WxArticleForbidUser">
+    insert into wx_article_forbid_user (forbid_id, user_id, user_name, 
+      forbid_length, forbid_time, created_by, 
+      created_name, created_time, updated_by, 
+      updated_name, updated_time, version
+      )
+    values (#{forbidId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, 
+      #{forbidLength,jdbcType=INTEGER}, #{forbidTime,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=BIGINT}, 
+      #{createdName,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, 
+      #{updatedName,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wujun.domain.WxArticleForbidUser">
+    insert into wx_article_forbid_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="forbidId != null">
+        forbid_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="forbidLength != null">
+        forbid_length,
+      </if>
+      <if test="forbidTime != null">
+        forbid_time,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdName != null">
+        created_name,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedName != null">
+        updated_name,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="forbidId != null">
+        #{forbidId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="forbidLength != null">
+        #{forbidLength,jdbcType=INTEGER},
+      </if>
+      <if test="forbidTime != null">
+        #{forbidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wujun.domain.WxArticleForbidUser">
+    update wx_article_forbid_user
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="forbidLength != null">
+        forbid_length = #{forbidLength,jdbcType=INTEGER},
+      </if>
+      <if test="forbidTime != null">
+        forbid_time = #{forbidTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        created_name = #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updated_by = #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        updated_name = #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+    </set>
+    where forbid_id = #{forbidId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wujun.domain.WxArticleForbidUser">
+    update wx_article_forbid_user
+    set user_id = #{userId,jdbcType=BIGINT},
+      user_name = #{userName,jdbcType=VARCHAR},
+      forbid_length = #{forbidLength,jdbcType=INTEGER},
+      forbid_time = #{forbidTime,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=BIGINT},
+      created_name = #{createdName,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=BIGINT},
+      updated_name = #{updatedName,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER}
+    where forbid_id = #{forbidId,jdbcType=BIGINT}
+  </update>
+</mapper>

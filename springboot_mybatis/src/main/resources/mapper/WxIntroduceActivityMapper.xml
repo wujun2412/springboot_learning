@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujun.dao.WxIntroduceActivityMapper">
+  <resultMap id="BaseResultMap" type="com.wujun.domain.WxIntroduceActivity">
+    <id column="activity_id" jdbcType="BIGINT" property="activityId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="cover_image" jdbcType="VARCHAR" property="coverImage" />
+    <result column="is_top" jdbcType="BIT" property="isTop" />
+    <result column="is_big_img" jdbcType="BIT" property="isBigImg" />
+    <result column="allow_entry_count" jdbcType="INTEGER" property="allowEntryCount" />
+    <result column="target_customer" jdbcType="BIT" property="targetCustomer" />
+    <result column="activity_series" jdbcType="VARCHAR" property="activitySeries" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="award_setting" jdbcType="VARCHAR" property="awardSetting" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="created_name" jdbcType="VARCHAR" property="createdName" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="updated_name" jdbcType="VARCHAR" property="updatedName" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.wujun.domain.WxIntroduceActivity">
+    <result column="description" jdbcType="LONGVARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    activity_id, name, cover_image, is_top, is_big_img, allow_entry_count, target_customer, 
+    activity_series, start_time, end_time, publish_time, status, award_setting, created_by, 
+    created_name, created_time, updated_by, updated_name, updated_time, version
+  </sql>
+  <sql id="Blob_Column_List">
+    description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from wx_introduce_activity
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from wx_introduce_activity
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wujun.domain.WxIntroduceActivity">
+    insert into wx_introduce_activity (activity_id, name, cover_image, 
+      is_top, is_big_img, allow_entry_count, 
+      target_customer, activity_series, start_time, 
+      end_time, publish_time, status, 
+      award_setting, created_by, created_name, 
+      created_time, updated_by, updated_name, 
+      updated_time, version, description
+      )
+    values (#{activityId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{coverImage,jdbcType=VARCHAR}, 
+      #{isTop,jdbcType=BIT}, #{isBigImg,jdbcType=BIT}, #{allowEntryCount,jdbcType=INTEGER}, 
+      #{targetCustomer,jdbcType=BIT}, #{activitySeries,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, 
+      #{endTime,jdbcType=TIMESTAMP}, #{publishTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BIT}, 
+      #{awardSetting,jdbcType=VARCHAR}, #{createdBy,jdbcType=BIGINT}, #{createdName,jdbcType=VARCHAR}, 
+      #{createdTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=BIGINT}, #{updatedName,jdbcType=VARCHAR}, 
+      #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wujun.domain.WxIntroduceActivity">
+    insert into wx_introduce_activity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        activity_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="coverImage != null">
+        cover_image,
+      </if>
+      <if test="isTop != null">
+        is_top,
+      </if>
+      <if test="isBigImg != null">
+        is_big_img,
+      </if>
+      <if test="allowEntryCount != null">
+        allow_entry_count,
+      </if>
+      <if test="targetCustomer != null">
+        target_customer,
+      </if>
+      <if test="activitySeries != null">
+        activity_series,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="publishTime != null">
+        publish_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="awardSetting != null">
+        award_setting,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdName != null">
+        created_name,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedName != null">
+        updated_name,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        #{activityId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="coverImage != null">
+        #{coverImage,jdbcType=VARCHAR},
+      </if>
+      <if test="isTop != null">
+        #{isTop,jdbcType=BIT},
+      </if>
+      <if test="isBigImg != null">
+        #{isBigImg,jdbcType=BIT},
+      </if>
+      <if test="allowEntryCount != null">
+        #{allowEntryCount,jdbcType=INTEGER},
+      </if>
+      <if test="targetCustomer != null">
+        #{targetCustomer,jdbcType=BIT},
+      </if>
+      <if test="activitySeries != null">
+        #{activitySeries,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishTime != null">
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="awardSetting != null">
+        #{awardSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wujun.domain.WxIntroduceActivity">
+    update wx_introduce_activity
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="coverImage != null">
+        cover_image = #{coverImage,jdbcType=VARCHAR},
+      </if>
+      <if test="isTop != null">
+        is_top = #{isTop,jdbcType=BIT},
+      </if>
+      <if test="isBigImg != null">
+        is_big_img = #{isBigImg,jdbcType=BIT},
+      </if>
+      <if test="allowEntryCount != null">
+        allow_entry_count = #{allowEntryCount,jdbcType=INTEGER},
+      </if>
+      <if test="targetCustomer != null">
+        target_customer = #{targetCustomer,jdbcType=BIT},
+      </if>
+      <if test="activitySeries != null">
+        activity_series = #{activitySeries,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishTime != null">
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="awardSetting != null">
+        award_setting = #{awardSetting,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        created_name = #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updated_by = #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        updated_name = #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.wujun.domain.WxIntroduceActivity">
+    update wx_introduce_activity
+    set name = #{name,jdbcType=VARCHAR},
+      cover_image = #{coverImage,jdbcType=VARCHAR},
+      is_top = #{isTop,jdbcType=BIT},
+      is_big_img = #{isBigImg,jdbcType=BIT},
+      allow_entry_count = #{allowEntryCount,jdbcType=INTEGER},
+      target_customer = #{targetCustomer,jdbcType=BIT},
+      activity_series = #{activitySeries,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=BIT},
+      award_setting = #{awardSetting,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=BIGINT},
+      created_name = #{createdName,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=BIGINT},
+      updated_name = #{updatedName,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      description = #{description,jdbcType=LONGVARCHAR}
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wujun.domain.WxIntroduceActivity">
+    update wx_introduce_activity
+    set name = #{name,jdbcType=VARCHAR},
+      cover_image = #{coverImage,jdbcType=VARCHAR},
+      is_top = #{isTop,jdbcType=BIT},
+      is_big_img = #{isBigImg,jdbcType=BIT},
+      allow_entry_count = #{allowEntryCount,jdbcType=INTEGER},
+      target_customer = #{targetCustomer,jdbcType=BIT},
+      activity_series = #{activitySeries,jdbcType=VARCHAR},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=BIT},
+      award_setting = #{awardSetting,jdbcType=VARCHAR},
+      created_by = #{createdBy,jdbcType=BIGINT},
+      created_name = #{createdName,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=BIGINT},
+      updated_name = #{updatedName,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER}
+    where activity_id = #{activityId,jdbcType=BIGINT}
+  </update>
+</mapper>
