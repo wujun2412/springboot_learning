@@ -5,7 +5,7 @@ package com.wujun.common.thread;
  * @description
  * @date 18/3/5.
  */
-public class InterruptedException implements Runnable {
+public class InterruptedException extends Throwable implements Runnable {
     @Override
     public void run() {
 
