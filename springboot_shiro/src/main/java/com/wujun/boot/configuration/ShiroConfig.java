@@ -2,16 +2,19 @@ package com.wujun.boot.configuration;
 
 import com.wujun.boot.common.ApplicationResourceName;
 import com.wujun.boot.common.RequestUtils;
+import com.wujun.boot.filter.KickoutSessionControlFilter;
 import com.wujun.boot.filter.PathMatchingPermissionFilter;
 import com.wujun.boot.security.MyShiroRealm;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.config.CacheConfiguration;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
+import org.apache.shiro.mgt.RememberMeManager;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.filter.authc.AnonymousFilter;
+import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.crazycake.shiro.RedisCacheManager;
@@ -65,9 +68,9 @@ public class ShiroConfig {
                 }
             }
         });
-        filtersMap.put("wujun_url_mode", pathMatchingPermissionFilter());
+        filtersMap.put("wujun_url_mode", new PathMatchingPermissionFilter(securityManager));
         //TODO 限制同一帐号同时在线的个数。
-        //filtersMap.put("kickout", kickoutSessionControlFilter());
+        filtersMap.put("kickout", kickoutSessionControlFilter());
         shiroFilterFactoryBean.setFilters(filtersMap);
         // 权限控制map.
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
@@ -81,7 +84,7 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/auth/login", "anon");
         filterChainDefinitionMap.put("/auth/logout", "logout");
         filterChainDefinitionMap.put("/auth/kickout", "anon");
-        filterChainDefinitionMap.put("/**", "wujun_url_mode");
+        filterChainDefinitionMap.put("/**", "wujun_url_mode,kickout");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
@@ -96,7 +99,13 @@ public class ShiroConfig {
         securityManager.setCacheManager(shiroCacheManager());
         //自定义session管理，使用redis
         //securityManager.setSessionManager(sessionManager());
+        securityManager.setRememberMeManager(rememberMeManager());
         return securityManager;
+    }
+
+    @Bean
+    public RememberMeManager rememberMeManager(){
+        return new CookieRememberMeManager();
     }
 
     @Bean
@@ -213,8 +222,24 @@ public class ShiroConfig {
         return new LifecycleBeanPostProcessor();
     }
 
-    @Bean
+    /*@Bean
     public PathMatchingPermissionFilter pathMatchingPermissionFilter() {
         return new PathMatchingPermissionFilter(securityManager());
+    }*/
+
+    /**
+     * 限制同一账号登录同时登录人数控制
+     *
+     * @return
+     */
+    @Bean
+    public KickoutSessionControlFilter kickoutSessionControlFilter() {
+        KickoutSessionControlFilter kickoutSessionControlFilter = new KickoutSessionControlFilter();
+        kickoutSessionControlFilter.setCacheManager(cacheManager());
+        kickoutSessionControlFilter.setSessionManager(sessionManager());
+        kickoutSessionControlFilter.setKickoutAfter(false);
+        kickoutSessionControlFilter.setMaxSession(1);
+        kickoutSessionControlFilter.setKickoutUrl("/auth/kickout");
+        return kickoutSessionControlFilter;
     }
 }

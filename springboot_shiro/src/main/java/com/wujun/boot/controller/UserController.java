@@ -29,8 +29,10 @@ public class UserController {
     public ApiResult submitLogin(String username, String password) {
         try {
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+            token.setRememberMe(true);
             Subject subject = SecurityUtils.getSubject();
             subject.login(token);
+            subject.getSession();
             //SysUser user = (SysUser) subject.getPrincipal();
         } catch (DisabledAccountException e) {
             throw new MyLogicExcepion("账户已被禁用","acount forbiden!");

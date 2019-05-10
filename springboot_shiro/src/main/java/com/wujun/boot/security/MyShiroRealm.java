@@ -1,5 +1,6 @@
 package com.wujun.boot.security;
 
+import com.wujun.boot.domain.SysUser;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -27,10 +28,10 @@ public class MyShiroRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
         String name = token.getUsername();
         String password = String.valueOf(token.getPassword());
-        /*SysUser user = new SysUser();
+        SysUser user = new SysUser();
         user.setUserName(name);
-        user.setPassWord(password);
-        // 从数据库获取对应用户名密码的用户
+        user.setPassword(password);
+        /*// 从数据库获取对应用户名密码的用户
         SysUser userList = userService.getUser(user);
         if (userList != null) {
             // 用户为禁用状态
@@ -47,7 +48,7 @@ public class MyShiroRealm extends AuthorizingRealm {
         }*/
         if (name.equals("wujun")&&password.equals("123456")){
             SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                    name, //用户
+                    user, //用户
                     password, //密码
                     getName()  //realm name
             );

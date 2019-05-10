@@ -13,7 +13,6 @@ public class ApplicationResourceName {
             "/druid/**",
             "/v2/api-docs/**",
             "/webjars/**",
-            "/sweet-framework/**",
             "/error"
     };
 	
