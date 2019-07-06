@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujun.dao.WxArticleTagMapper">
+  <resultMap id="BaseResultMap" type="com.wujun.domain.WxArticleTag">
+    <id column="article_tag_id" jdbcType="BIGINT" property="articleTagId" />
+    <result column="article_id" jdbcType="BIGINT" property="articleId" />
+    <result column="tag_id" jdbcType="BIGINT" property="tagId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    article_tag_id, article_id, tag_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wx_article_tag
+    where article_tag_id = #{articleTagId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from wx_article_tag
+    where article_tag_id = #{articleTagId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wujun.domain.WxArticleTag">
+    insert into wx_article_tag (article_tag_id, article_id, tag_id
+      )
+    values (#{articleTagId,jdbcType=BIGINT}, #{articleId,jdbcType=BIGINT}, #{tagId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wujun.domain.WxArticleTag">
+    insert into wx_article_tag
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleTagId != null">
+        article_tag_id,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="tagId != null">
+        tag_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleTagId != null">
+        #{articleTagId,jdbcType=BIGINT},
+      </if>
+      <if test="articleId != null">
+        #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="tagId != null">
+        #{tagId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wujun.domain.WxArticleTag">
+    update wx_article_tag
+    <set>
+      <if test="articleId != null">
+        article_id = #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="tagId != null">
+        tag_id = #{tagId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where article_tag_id = #{articleTagId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wujun.domain.WxArticleTag">
+    update wx_article_tag
+    set article_id = #{articleId,jdbcType=BIGINT},
+      tag_id = #{tagId,jdbcType=BIGINT}
+    where article_tag_id = #{articleTagId,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujun.dao.WxArticleImageMapper">
+  <resultMap id="BaseResultMap" type="com.wujun.domain.WxArticleImage">
+    <id column="article_image_id" jdbcType="BIGINT" property="articleImageId" />
+    <result column="article_id" jdbcType="BIGINT" property="articleId" />
+    <result column="image_file_id" jdbcType="BIGINT" property="imageFileId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    article_image_id, article_id, image_file_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from wx_article_image
+    where article_image_id = #{articleImageId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from wx_article_image
+    where article_image_id = #{articleImageId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wujun.domain.WxArticleImage">
+    insert into wx_article_image (article_image_id, article_id, image_file_id
+      )
+    values (#{articleImageId,jdbcType=BIGINT}, #{articleId,jdbcType=BIGINT}, #{imageFileId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.wujun.domain.WxArticleImage">
+    insert into wx_article_image
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleImageId != null">
+        article_image_id,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="imageFileId != null">
+        image_file_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleImageId != null">
+        #{articleImageId,jdbcType=BIGINT},
+      </if>
+      <if test="articleId != null">
+        #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="imageFileId != null">
+        #{imageFileId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wujun.domain.WxArticleImage">
+    update wx_article_image
+    <set>
+      <if test="articleId != null">
+        article_id = #{articleId,jdbcType=BIGINT},
+      </if>
+      <if test="imageFileId != null">
+        image_file_id = #{imageFileId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where article_image_id = #{articleImageId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wujun.domain.WxArticleImage">
+    update wx_article_image
+    set article_id = #{articleId,jdbcType=BIGINT},
+      image_file_id = #{imageFileId,jdbcType=BIGINT}
+    where article_image_id = #{articleImageId,jdbcType=BIGINT}
+  </update>
+</mapper>
