@@ -1,6 +1,6 @@
 package com.wujun.boot.rabbitmq;
 
-import com.wujun.boot.configuration.HelloSender;
+import com.wujun.boot.configuration.sender.HelloSender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

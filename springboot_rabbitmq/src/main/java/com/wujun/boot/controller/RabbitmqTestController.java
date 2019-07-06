@@ -1,6 +1,6 @@
 package com.wujun.boot.controller;
 
-import com.wujun.boot.configuration.HelloSender;
+import com.wujun.boot.configuration.sender.HelloSender;
 import com.wujun.boot.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,6 +51,18 @@ public class RabbitmqTestController {
     @RequestMapping("/fanoutSend")
     public void fanoutSend(){
         helloSender.fanoutSend();
+    }
+
+
+    // direct exchange模式
+    @RequestMapping("/directSend1")
+    public void directSend1(){
+        helloSender.directSend1();
+    }
+
+    @RequestMapping("/directSend2")
+    public void directSend2(){
+        helloSender.directSend2();
     }
 
 }

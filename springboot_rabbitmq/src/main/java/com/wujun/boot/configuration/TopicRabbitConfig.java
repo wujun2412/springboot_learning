@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class TopicRabbitConfig {
     //定义两个消息队列，来测试topic 类型exchange
-    final static String message = "topic.message";
-    final static String messages = "topic.messages";
+    public final static String message = "topic.message";
+    public final static String messages = "topic.messages";
 
     @Bean
     public Queue queueMessage(){

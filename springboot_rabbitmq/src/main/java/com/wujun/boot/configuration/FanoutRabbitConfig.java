@@ -16,9 +16,9 @@ import org.springframework.context.annotation.Configuration;
 public class FanoutRabbitConfig {
 
     //定义三个消息队列，来测试fanout 类型exchange
-    final static String messageA = "fanout.A";
-    final static String messageB = "fanout.B";
-    final static String messageC = "fanout.C";
+    public final static String messageA = "fanout.A";
+    public final static String messageB = "fanout.B";
+    public final static String messageC = "fanout.C";
 
     @Bean
     public Queue aMessage(){

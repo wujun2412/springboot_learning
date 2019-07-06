@@ -2,7 +2,7 @@ package com.wujun.common.pattern.template;
 
 /**
  * @author wujun
- * @description
+ * @description 模板模式模式
  * @date 18/3/20.
  */
 public class Test {

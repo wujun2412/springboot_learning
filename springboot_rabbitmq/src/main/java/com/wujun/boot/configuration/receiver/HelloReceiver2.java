@@ -1,5 +1,8 @@
-package com.wujun.boot.configuration;
+package com.wujun.boot.configuration.receiver;
 
+import com.wujun.boot.configuration.DirectRabbitConfig;
+import com.wujun.boot.configuration.FanoutRabbitConfig;
+import com.wujun.boot.configuration.TopicRabbitConfig;
 import com.wujun.boot.domain.User;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -56,5 +59,18 @@ public class HelloReceiver2 {
     public void fanoutProcessC(String content) {
         System.out.println("fanoutReceiverC : " + content);
     }
+
+    /*@RabbitListener(queues = DirectRabbitConfig.message)
+    @RabbitHandler
+    public void directProcessA(String content){
+        System.out.println("directReceiveA : " + content);
+    }
+*/
+    @RabbitListener(queues = DirectRabbitConfig.messages)
+    @RabbitHandler
+    public void directProcessB(String content){
+        System.out.println("directReceiveB : " + content);
+    }
+
 
 }

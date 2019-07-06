@@ -1,4 +1,4 @@
-package com.wujun.boot.configuration;
+package com.wujun.boot.configuration.receiver;
 
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

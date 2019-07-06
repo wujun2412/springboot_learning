@@ -47,6 +47,27 @@ public class ApiResult<T> {
         this.msg = msg;
     }
 
+    public ApiResult() {
+    }
+
+    public ApiResult(String status, T data) {
+        this.status = status;
+        this.data = data;
+    }
+
+    public ApiResult(String status, String msg, T data) {
+        this.status = status;
+        this.msg = msg;
+        this.data = data;
+    }
+
+    public ApiResult(String status, String errCode, String msg, T data) {
+        this.status = status;
+        this.errCode = errCode;
+        this.msg = msg;
+        this.data = data;
+    }
+
     public static ApiResult SUCCESS() {
         ApiResult apiResult = new ApiResult();
         apiResult.setStatus(_SUCCESS);
@@ -60,6 +81,10 @@ public class ApiResult<T> {
         return apiResult;
     }
 
+    public static <T> ApiResult<T> success(T data) {
+        return new ApiResult(_SUCCESS, data);
+    }
+
     public static ApiResult FAIL() {
         ApiResult apiResult = new ApiResult();
         apiResult.setStatus(_FAIL);
@@ -70,6 +95,11 @@ public class ApiResult<T> {
         ApiResult apiResult = new ApiResult();
         apiResult.setStatus(_FAIL);
         apiResult.setMsg(msg);
+        return apiResult;
+    }
+
+    public static <T> ApiResult<T> FAIL(String msg, T data){
+        ApiResult apiResult = new ApiResult(_FAIL, msg, data);
         return apiResult;
     }
 }

@@ -1,4 +1,4 @@
-package com.wujun.boot.configuration;
+package com.wujun.boot.configuration.sender;
 
 import com.wujun.boot.domain.User;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -59,5 +59,20 @@ public class HelloSender {
         String content = "hi, i am fanout message";
         System.out.println("fanoutSender : "+ content);
         rabbitTemplete.convertAndSend("fanoutExchange","",content);
+    }
+
+    /**
+     * direct 类型消息
+     */
+    public void directSend1(){
+        String content = "hi, i am direct message";
+        System.out.println("directSender1 : "+ content);
+        rabbitTemplete.convertAndSend("directExchange","direct.error",content);
+    }
+
+    public void directSend2(){
+        String content = "hi, i am direct message";
+        System.out.println("directSender2 : "+ content);
+        rabbitTemplete.convertAndSend("directExchange","direct.info",content);
     }
 }
