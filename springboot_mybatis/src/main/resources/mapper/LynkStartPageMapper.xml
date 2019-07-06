@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wujun.dao.LynkStartPageMapper">
+  <resultMap id="BaseResultMap" type="com.wujun.domain.LynkStartPage">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="page_name" jdbcType="VARCHAR" property="pageName" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="page_type" jdbcType="BIT" property="pageType" />
+    <result column="can_jump" jdbcType="BIT" property="canJump" />
+    <result column="jump_url" jdbcType="VARCHAR" property="jumpUrl" />
+    <result column="isDefault" jdbcType="BIT" property="isdefault" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="enable_time" jdbcType="BIT" property="enableTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="ios_image" jdbcType="VARCHAR" property="iosImage" />
+    <result column="android_image" jdbcType="VARCHAR" property="androidImage" />
+    <result column="countDown" jdbcType="INTEGER" property="countdown" />
+    <result column="created_by" jdbcType="BIGINT" property="createdBy" />
+    <result column="created_name" jdbcType="VARCHAR" property="createdName" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_by" jdbcType="BIGINT" property="updatedBy" />
+    <result column="updated_name" jdbcType="VARCHAR" property="updatedName" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, page_name, brand, channel, page_type, can_jump, jump_url, isDefault, status, 
+    enable_time, start_time, end_time, ios_image, android_image, countDown, created_by, 
+    created_name, created_time, updated_by, updated_name, updated_time, version
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from lynk_start_page
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from lynk_start_page
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.wujun.domain.LynkStartPage">
+    insert into lynk_start_page (id, page_name, brand, 
+      channel, page_type, can_jump, 
+      jump_url, isDefault, status, 
+      enable_time, start_time, end_time, 
+      ios_image, android_image, countDown, 
+      created_by, created_name, created_time, 
+      updated_by, updated_name, updated_time, 
+      version)
+    values (#{id,jdbcType=BIGINT}, #{pageName,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{channel,jdbcType=VARCHAR}, #{pageType,jdbcType=BIT}, #{canJump,jdbcType=BIT}, 
+      #{jumpUrl,jdbcType=VARCHAR}, #{isdefault,jdbcType=BIT}, #{status,jdbcType=BIT}, 
+      #{enableTime,jdbcType=BIT}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{iosImage,jdbcType=VARCHAR}, #{androidImage,jdbcType=VARCHAR}, #{countdown,jdbcType=INTEGER}, 
+      #{createdBy,jdbcType=BIGINT}, #{createdName,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=BIGINT}, #{updatedName,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, 
+      #{version,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wujun.domain.LynkStartPage">
+    insert into lynk_start_page
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="pageName != null">
+        page_name,
+      </if>
+      <if test="brand != null">
+        brand,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="pageType != null">
+        page_type,
+      </if>
+      <if test="canJump != null">
+        can_jump,
+      </if>
+      <if test="jumpUrl != null">
+        jump_url,
+      </if>
+      <if test="isdefault != null">
+        isDefault,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="enableTime != null">
+        enable_time,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="iosImage != null">
+        ios_image,
+      </if>
+      <if test="androidImage != null">
+        android_image,
+      </if>
+      <if test="countdown != null">
+        countDown,
+      </if>
+      <if test="createdBy != null">
+        created_by,
+      </if>
+      <if test="createdName != null">
+        created_name,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="updatedBy != null">
+        updated_by,
+      </if>
+      <if test="updatedName != null">
+        updated_name,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="pageName != null">
+        #{pageName,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="pageType != null">
+        #{pageType,jdbcType=BIT},
+      </if>
+      <if test="canJump != null">
+        #{canJump,jdbcType=BIT},
+      </if>
+      <if test="jumpUrl != null">
+        #{jumpUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isdefault != null">
+        #{isdefault,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="enableTime != null">
+        #{enableTime,jdbcType=BIT},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iosImage != null">
+        #{iosImage,jdbcType=VARCHAR},
+      </if>
+      <if test="androidImage != null">
+        #{androidImage,jdbcType=VARCHAR},
+      </if>
+      <if test="countdown != null">
+        #{countdown,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wujun.domain.LynkStartPage">
+    update lynk_start_page
+    <set>
+      <if test="pageName != null">
+        page_name = #{pageName,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="pageType != null">
+        page_type = #{pageType,jdbcType=BIT},
+      </if>
+      <if test="canJump != null">
+        can_jump = #{canJump,jdbcType=BIT},
+      </if>
+      <if test="jumpUrl != null">
+        jump_url = #{jumpUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="isdefault != null">
+        isDefault = #{isdefault,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="enableTime != null">
+        enable_time = #{enableTime,jdbcType=BIT},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iosImage != null">
+        ios_image = #{iosImage,jdbcType=VARCHAR},
+      </if>
+      <if test="androidImage != null">
+        android_image = #{androidImage,jdbcType=VARCHAR},
+      </if>
+      <if test="countdown != null">
+        countDown = #{countdown,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null">
+        created_by = #{createdBy,jdbcType=BIGINT},
+      </if>
+      <if test="createdName != null">
+        created_name = #{createdName,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updated_by = #{updatedBy,jdbcType=BIGINT},
+      </if>
+      <if test="updatedName != null">
+        updated_name = #{updatedName,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wujun.domain.LynkStartPage">
+    update lynk_start_page
+    set page_name = #{pageName,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      channel = #{channel,jdbcType=VARCHAR},
+      page_type = #{pageType,jdbcType=BIT},
+      can_jump = #{canJump,jdbcType=BIT},
+      jump_url = #{jumpUrl,jdbcType=VARCHAR},
+      isDefault = #{isdefault,jdbcType=BIT},
+      status = #{status,jdbcType=BIT},
+      enable_time = #{enableTime,jdbcType=BIT},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      ios_image = #{iosImage,jdbcType=VARCHAR},
+      android_image = #{androidImage,jdbcType=VARCHAR},
+      countDown = #{countdown,jdbcType=INTEGER},
+      created_by = #{createdBy,jdbcType=BIGINT},
+      created_name = #{createdName,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_by = #{updatedBy,jdbcType=BIGINT},
+      updated_name = #{updatedName,jdbcType=VARCHAR},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
