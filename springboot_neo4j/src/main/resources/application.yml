@@ -1,0 +1,16 @@
+
+server:
+  port: 8888
+spring:
+  data:
+    neo4j:
+      username: neo4j
+      password: qwe123!@#
+      uri: http://192.168.60.129:7474
+
+
+
+
+
+
+

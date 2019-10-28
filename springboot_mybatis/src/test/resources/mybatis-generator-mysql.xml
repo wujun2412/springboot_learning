@@ -12,9 +12,9 @@
         </commentGenerator>
         <!--数据库链接地址账号密码-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/Lynk?useSSL=false"
-                        userId="root"
-                        password="root">
+                        connectionURL="jdbc:mysql://10.190.38.241:3310/dev_lkaomp?useSSL=false"
+                        userId="lynk_dev_user"
+                        password="EXfmUBN5dc53bc_A">
         </jdbcConnection>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
@@ -82,13 +82,47 @@
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
         </table>-->
 
-        <table tableName="lynk_start_page" domainObjectName="LynkStartPage"
+        <!--<table tableName="lynk_start_page" domainObjectName="LynkStartPage"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <columnOverride column="can_jump" javaType="java.lang.Integer"/>
             <columnOverride column="isDefault" javaType="java.lang.Integer"/>
             <columnOverride column="enable_time" javaType="java.lang.Integer"/>
             <columnOverride column="page_type" javaType="java.lang.Integer"/>
             <columnOverride column="status" javaType="java.lang.Integer"/>
+        </table>-->
+
+        <!--<table tableName="banner" domainObjectName="Banner"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <columnOverride column="vaild" javaType="java.lang.Integer"/>
+            <columnOverride column="status" javaType="java.lang.Integer"/>
         </table>
+        <table tableName="banner_positions" domainObjectName="BannerPositions"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <columnOverride column="position_type" javaType="java.lang.Integer"/>
+            <columnOverride column="status" javaType="java.lang.Integer"/>
+        </table>-->
+
+
+        <!--<table tableName="popwindow" domainObjectName="PopWindow"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <columnOverride column="vaild" javaType="java.lang.Integer"/>
+            <columnOverride column="status" javaType="java.lang.Integer"/>
+        </table>-->
+
+        <!--<table tableName="popwindow_page" domainObjectName="popwindowPage"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <columnOverride column="vaild" javaType="java.lang.Integer"/>
+        </table>-->
+
+        <!--<table tableName="popwindow_position" domainObjectName="PopWindowPosition"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <columnOverride column="vaild" javaType="java.lang.Integer"/>
+        </table>-->
+
+        <table tableName="popwindow_position_resource" domainObjectName="PopWindowPositionResource"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <columnOverride column="vaild" javaType="java.lang.Integer"/>
+        </table>
+
     </context>
 </generatorConfiguration>

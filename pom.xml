@@ -37,6 +37,7 @@
 		<module>springboot_spring_session</module>
 		<module>springboot_metrics</module>
         <module>springboot_rabbitmq</module>
+		<module>springboot_neo4j</module>
 	</modules>
 
     <properties>
@@ -71,6 +72,12 @@
 				<artifactId>common</artifactId>
 				<version>1.0.1-SNAPSHOT</version>
 			</dependency>
+			<dependency>
+				<groupId>com.wujun.boot</groupId>
+				<artifactId>core</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
 			<dependency>
 				<groupId>org.csource</groupId>
 				<artifactId>fastdfs-client</artifactId>

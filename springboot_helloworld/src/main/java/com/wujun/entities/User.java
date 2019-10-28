@@ -12,6 +12,15 @@ public class User {
 
     private Integer sex;
 
+    public User() {
+    }
+
+    public User(Long id, String name, Integer sex) {
+        this.id = id;
+        this.name = name;
+        this.sex = sex;
+    }
+
     public Long getId() {
         return id;
     }
