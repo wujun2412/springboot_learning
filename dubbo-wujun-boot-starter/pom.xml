@@ -26,7 +26,7 @@
 		<!-- dubbo -->
 		<dubbo.version>2.6.0</dubbo.version>
 		<!-- zookeeper -->
-		<zookeeper.version>3.4.6</zookeeper.version>
+		<zookeeper.version>3.4.14</zookeeper.version>
 		<zkclient.version>0.10</zkclient.version>
 		<fastjson.version>1.2.33</fastjson.version>
 	</properties>
