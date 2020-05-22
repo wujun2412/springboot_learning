@@ -1,0 +1,18 @@
+server:
+  port: 28080
+spring:
+  application:
+    name: springboot rabbitmq delay queue
+  # rabbitmq消息队列配置信息
+  rabbitmq:
+    host: 192.168.92.129
+    port: 5672
+    username: admin
+    password: admin
+    listener:
+      simple:
+        acknowledge-mode: manual
+    # 消息发送和接受确认
+    publisher-confirms: true
+    publisher-returns: true
+
