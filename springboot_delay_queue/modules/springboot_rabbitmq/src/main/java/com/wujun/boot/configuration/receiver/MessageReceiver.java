@@ -28,19 +28,19 @@ public class MessageReceiver {
 
     @RabbitListener(queues = {MqConstants.DEAD_LETTER_REDIRECT_QUEUE})
     @RabbitHandler
-    public void process(Channel channel,
+    public void process(MqMessage mqMessage, Channel channel,
                         Message message) throws IOException {
 
         //从队列中取出订单号
-        String msgStr = new String(message.getBody(), "UTF-8");
+        //String msgStr = new String(message.getBody(), "UTF-8");
+        String msgStr = JSON.toJSONString(mqMessage);
         LOGGER.info("{}消费消息,msg={}", new Date(), msgStr);
-
         //MqMessage mqMessage = JSON.parseObject(msgStr, MqMessage.class);
         Action action = Action.RETRY;
         try {
             // TODO 执行回调
             //确认消息有没有被收到,false表示手动确认 在处理完消息时，返回应答状态
-            channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+            //channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
             LOGGER.info("[MessageConsumer延时消息消费时间]{}，消息={}", new Date(), msgStr);
             action = Action.ACCEPT;
         } catch (Exception e) {
@@ -50,6 +50,7 @@ public class MessageReceiver {
         } finally {
             // 通过finally块来保证ack/nack会且只会执行一次
             if (action == Action.ACCEPT) {
+                //channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);
                 channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
             } else if (action == Action.RETRY) {
                 channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, true);

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -34,6 +36,9 @@ public class OrderController {
         MqMessage mqMessage = new MqMessage();
         mqMessage.setDelaySec(10);
         mqMessage.setCallBackUrl("http://localhost:28080/callback");
+        Map<String, Object> params = new HashMap<>(8);
+        params.put("name","小李");
+        mqMessage.setParams(params);
         messageProvider.sendMessage(mqMessage);
     }
 
