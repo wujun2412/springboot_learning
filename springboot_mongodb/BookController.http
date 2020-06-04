@@ -1,0 +1,55 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+POST http://127.0.0.1:8888/v1/book
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "redis book2",
+  "info": "learn to know how redis running",
+  "price": 30,
+  "publish": "laoli"
+}
+###
+
+GET http://127.0.0.1:8888/v1/book/all
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8888/v1/book/1
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8888/v1/book/name?name=Mongodb book2
+Accept: application/json
+
+###
+
+PUT http://127.0.0.1:8888/v1/book
+Content-Type: application/json
+
+    {
+      "id": 2,
+      "name": "Mongodb book2 update",
+      "info": "learn to know how mongodb running2 update",
+      "price": 30,
+      "publish": "laoli update"
+    }
+
+###
+
+DELETE http://127.0.0.1:8888/v1/book/2
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8888/v1/book/likes?search=book
+Accept: application/json
+
+###
