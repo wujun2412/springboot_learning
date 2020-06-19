@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: springboot apollo
+server:
+  port: 8888
+
+app:
+  id: geometry-aomp-center-service
+apollo:
+  meta: http://apollo-meta-uat.sgw.test.geely.svc
+  bootstrap:
+    enabled: true
+  eagerLoad:
+    enabled: true
+
