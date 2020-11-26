@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: springboot kafka
+
+  kafka:
+    bootstrap-servers: 10.186.171.27:9092,10.186.171.28:9092,10.186.171.38:9092,10.186.171.39:9092,10.186.171.40:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+server:
+  port: 28080
+
+
+
+

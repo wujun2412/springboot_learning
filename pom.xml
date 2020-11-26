@@ -38,6 +38,7 @@
 		<module>springboot_metrics</module>
         <module>springboot_rabbitmq</module>
 		<module>springboot_neo4j</module>
+		<module>springboot_kafka</module>
 	</modules>
 
     <properties>
